@@ -1,9 +1,9 @@
 <template>
     <div>
-        <nav>
+        <!-- <nav>
              <router-link  v-for="(item,index) of tabNav" :to="{path:item.url,name:'quanju',params:{id:index}}">{{item.title}}</router-link>
         </nav>
-        <router-view></router-view>
+        <router-view></router-view> -->
     </div>
 </template>
 
