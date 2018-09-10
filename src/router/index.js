@@ -16,32 +16,37 @@ import Tongxunlu from '../components/tongxunlu/tongxunlu'
 
 
 export default new Router({
-    routes: [{
+    routes: [
+        {
             path: '/xiaoxi',
             component: Xiaoxi,
             name: '消息'
-        }, {
+        },
+        {
             path: '/xiangmu',
             component: Xiangmu,
-            name: '项目'
-        },{
+            name: '项目',
+            
+        },
+        {
             path: '/rili',
             component: Rili,
             name: '日历'
-        }, {
+        }, 
+        {
             path: '/wangpan',
             component: Wangpan,
             name: '网盘'
-        },{
-          path: '/tongxunlu',
-          name:'通讯录',
-          component: Tongxunlu,
-      },{
+        },
+        {
+            path: '/tongxunlu',
+            component: Tongxunlu,
+            name:'通讯录'
+        },
+        {
         //如果用户随便输入地址,转到首页
-        path: '*',
-        redirect: '/xiangmu'
-    }
-
-        
+            path: '*',
+            redirect: '/xiangmu'
+        }
     ]
 })

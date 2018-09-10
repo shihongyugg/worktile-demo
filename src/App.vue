@@ -31,7 +31,7 @@ export default {
         },
         {
           title: "日历",
-          url: "rili"
+          url: "/rili"
         },
         {
           title: "网盘",
