@@ -18,7 +18,7 @@ Vue.use(VueRouter)
 import router from './router'//router/index.js
 // -------------------------------------------------------------
 
-
+// -------------------------------------------------
 new Vue({
     el: '#app',
     store,
