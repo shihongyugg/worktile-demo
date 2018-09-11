@@ -51,9 +51,9 @@ export default {
 </script>
 
 <style lang="scss">
-.router-link-active{
-  background: #18bfa4;
-}
+// .router-link-active{
+//   // background: #18bfa4;
+// }
 html,
 body,
 .app {
