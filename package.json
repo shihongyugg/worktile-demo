@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "element-ui": "^2.4.6",
+    "v-calendar": "^0.9.7",
     "vue": "^2.5.11",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
