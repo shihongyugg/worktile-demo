@@ -14,17 +14,17 @@ import xm from './xm'
 import Rili from '../components/rili/rili'
 import Wangpan from '../components/wangpan/wangpan'
 import Tongxunlu from '../components/tongxunlu/tongxunlu'
-
+import Xx from './xx'
 
 export default new Router({
     routes: [
         {
             path: '/xiaoxi',
             component: Xiaoxi,
-            name: '消息'
-        },
-        {
-            path: '/xiangmu/',
+            name: '消息',
+            children:Xx.xx
+        }, {
+            path: '/xiangmu',
             component: Xiangmu,
             name: '项目',
             children:xm.xm
