@@ -2,12 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router)
 
-// import Anquan from '../components/home/anquan/anquan'
-// import Gaoji from '../components/home/gaoji/gaoji'
-// import Quanju from '../components/home/quanju/quanju'
-// import Renwu from '../components/home/renwu/renwu'
-// import Xiangmu from '../components/home/xiangmu/xiangmu'
-
 import Xiaoxi from '../components/xiaoxi/xiaoxi'
 import Xiangmu from '../components/xiangmu/xiangmu'
 import Rili from '../components/rili/rili'

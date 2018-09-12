@@ -57,11 +57,17 @@ const store = new Vuex.Store({
         quanbu(state){
             return state.things;
         },
-        gongzuo(state){
-            return state.things.filter(item => item.sta == '1');
+        b4(state){
+            return state.things.filter(item => item.sta == 'b4');
         },
-        shenghuo(state){
-            return state.things.filter(item => item.sta == '2');
+        b1(state){
+            return state.things.filter(item => item.sta == 'b1');
+        },
+        b2(state){
+            return state.things.filter(item => item.sta == 'b2');
+        },
+        b3(state){
+            return state.things.filter(item => item.sta == 'b3');
         }
     }
 })
