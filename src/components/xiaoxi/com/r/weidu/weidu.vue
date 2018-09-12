@@ -16,7 +16,7 @@ export default {
 <style lang='scss' scoped>
   
     .unread_cont{
-       width: 75%;
+      width: 75%;
     height: 80%;
     overflow: auto;
     position: absolute;
