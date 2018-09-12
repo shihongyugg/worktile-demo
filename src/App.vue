@@ -1,9 +1,17 @@
 <template>
   <div class="app">
     <div class="left-nav">
+      <div class="logo">
+        <img src="https://s3.cn-north-1.amazonaws.com.cn/lclogo/team_logo_default.png" alt="">
+      </div>
       <ul>
         <li>
-          <router-link  v-for="(item,index) of tabNav" :to="item.url">{{item.title}}</router-link>
+          <router-link  v-for="(item,index) of tabNav" :to="item.url">
+            <span class="it_icon">
+              <i :class="{'iconfont icon-xiaoxi':item.title == '消息','iconfont icon-xiangmu':item.title == '项目','iconfont icon-rili':item.title == '日历','iconfont icon-wenjian':item.title == '网盘','iconfont icon-contacts-gray':item.title == '通讯录'}"></i>
+            </span>
+            <span>{{item.title}}</span>
+          </router-link>
         </li>
       </ul>
       
@@ -27,7 +35,7 @@ export default {
         },
         {
           title: "项目",
-          url: "/xiangmu"
+          url: "/xiangmu/"
         },
         {
           title: "日历",
@@ -64,6 +72,11 @@ body,
   margin: 0;
   padding: 0;
 }
+.logo{
+    margin: 18px 0;
+    text-align: center;
+    display: block;
+}
 ul,
 li {
   list-style: none;
@@ -83,14 +96,34 @@ a {
   li {
     a {
       height: 70px;
-      line-height: 70px;
       text-align: center;
       display: block;
       color: #fff;
       &:hover{
            background: #18bfa4;
       }
+      span{
+        display: block;
+        font-size:14px;
+      }
     }
   }
 }
+.it_icon{
+    padding-top: 15px;
+    color: rgb(3, 1, 1);
+    opacity: .8;
+    position: relative;
+}
+.it_icon .iconfont{
+  font-size:18px;
+  color: #fff;
+}
+.icon-shixinxiaoxi{
+  color: #fff;
+  display: none;
+  transition: all 1s;
+  
+}
+
 </style>
