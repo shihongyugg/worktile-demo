@@ -5,6 +5,7 @@ Vue.use(Router)
 
 import Xiaoxi from '../components/xiaoxi/xiaoxi'
 import Xiangmu from '../components/xiangmu/xiangmu'
+import xm from './xm'
 import Rili from '../components/rili/rili'
 import Wangpan from '../components/wangpan/wangpan'
 import Tongxunlu from '../components/tongxunlu/tongxunlu'
@@ -13,21 +14,27 @@ import wp from './wp'
 
 
 
+import Xx from './xx'
 
 export default new Router({
-    routes: [{
+    routes: [
+        {
             path: '/xiaoxi',
             component: Xiaoxi,
-            name: '消息'
+            name: '消息',
+            children:Xx.xx
         }, {
             path: '/xiangmu',
             component: Xiangmu,
-            name: '项目'
-        },{
+            name: '项目',
+            children:xm.xm
+        },
+        {
             path: '/rili',
             component: Rili,
             name: '日历'
-        }, {
+        }, 
+        {
             path: '/wangpan',
             component: Wangpan,
             name: '网盘',

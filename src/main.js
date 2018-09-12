@@ -16,7 +16,16 @@ Vue.use(ElementUI)
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 import router from './router'//router/index.js
-// -------------------------------------------------------------
+// --------------------------------------------------------
+import VCalendar from 'v-calendar'
+import 'v-calendar/lib/v-calendar.min.css'
+Vue.use(VCalendar,{
+    firstDayOfWeek:1,
+})
+// --------------------------------------------------
+import './assets/iconfont/iconfont.css'
+// ----------------------------------------------------
+
 
 // -------------------------------------------------
 new Vue({
