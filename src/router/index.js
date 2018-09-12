@@ -2,17 +2,16 @@ import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router)
 
-// import Anquan from '../components/home/anquan/anquan'
-// import Gaoji from '../components/home/gaoji/gaoji'
-// import Quanju from '../components/home/quanju/quanju'
-// import Renwu from '../components/home/renwu/renwu'
-// import Xiangmu from '../components/home/xiangmu/xiangmu'
 
 import Xiaoxi from '../components/xiaoxi/xiaoxi'
 import Xiangmu from '../components/xiangmu/xiangmu'
 import Rili from '../components/rili/rili'
 import Wangpan from '../components/wangpan/wangpan'
 import Tongxunlu from '../components/tongxunlu/tongxunlu'
+import wp from './wp'
+
+
+
 
 
 export default new Router({
@@ -31,17 +30,17 @@ export default new Router({
         }, {
             path: '/wangpan',
             component: Wangpan,
-            name: '网盘'
+            name: '网盘',
+            children:wp.wp
         },{
           path: '/tongxunlu',
           name:'通讯录',
           component: Tongxunlu,
-      },{
+      },
+      {
         //如果用户随便输入地址,转到首页
         path: '*',
         redirect: '/xiangmu'
-    }
-
-        
+    }    
     ]
 })
