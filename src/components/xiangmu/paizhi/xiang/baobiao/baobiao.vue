@@ -52,21 +52,14 @@
 
 <script>
 export default {
-     data(){
+    data(){
         return {
             ind:["项目报表","备注","支持平台","操作"],
             mu:[
                 {
+                    id:1,
                     sp:'项目概要报表',
                     content:'展示项目中的基本统计，类型的分布等'
-                },
-                {
-                    sp:'缺陷管理',
-                    content:'适用于缺陷管理'
-                },
-                {
-                    sp:'测试管理',
-                    content:'适用于测试用例管理'
                 }
             ]
         }
@@ -79,10 +72,10 @@ export default {
                 type: 'warning'
                 }).then(() => {
                     this.mu.splice(index,1);
-                this.$message({
-                    type: 'success',
-                    message: '删除成功!'
-                });
+                    this.$message({
+                        type: 'success',
+                        message: '删除成功!'
+                    });
                 }).catch(() => {
                 this.$message({
                     type: 'info',

@@ -23,35 +23,30 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>任务属性</th>
-                                <th>唯一标识</th>
-                                <th>备注</th>
-                                <th>类型</th>
-                                <th>分组</th>
-                                <th>操作</th>
+                                <th v-for="val of ind">{{val}}</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr v-for="(v,index) of mu">
                                 <td>
                                     <div class="shi">
-                                        <span>编号</span>
+                                        <span>{{v.sp}}</span>
                                     </div>
                                 </td>
                                 <td>
-                                    eeijdjdji
+                                    {{v.content}}
                                 </td>
                                 <td>
                                     <span class="beizhu"></span>
                                 </td>
                                 <td class="con">
-                                    文本
+                                    {{v.txt}}
                                 </td>
                                 <td class="con">
-                                    标准
+                                    {{v.nex}}
                                 </td>
                                 <td class="con extend">
-                                    -
+                                    {{v.state}}
                                 </td>
                             </tr>
                         </tbody>
@@ -64,7 +59,79 @@
 
 <script>
 export default {
-
+    data(){
+        return {
+            ind:["任务属性","唯一标识","备注","类型","分组","操作"],
+            mu:[
+                {
+                    id:1,
+                    sp:'编号',
+                    content:'eeijdjdji',
+                    txt:'文本',
+                    nex:'标准',
+                    state:'—'
+                },
+                {
+                    id:2,
+                    sp:'任务类型',
+                    content:'type',
+                    txt:'类型',
+                    nex:'标准',
+                    state:'—'
+                },
+                {
+                    id:3,
+                    sp:'状态',
+                    content:'适用于测试用例管理',
+                    txt:'状态',
+                    nex:'标准',
+                    state:'—'
+                },
+                {
+                    id:4,
+                    sp:'标题',
+                    content:'title',
+                    txt:'文本',
+                    nex:'标准',
+                    state:'—'
+                },
+                {
+                    id:5,
+                    sp:'创建人',
+                    content:'created_by',
+                    txt:'成员',
+                    nex:'标准',
+                    state:'—'
+                }
+            ]
+        }
+    },
+    methods:{
+        open2:function(id) {
+            this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+                }).then(() => {
+                    // 删除某一个
+                    for (var i=0;i<this.mu.length;i++){
+                        if (this.mu[i].id == id) {
+                            this.mu.splice(i, 1);
+                            break;
+                        }
+                    }
+                    this.$message({
+                        type: 'success',
+                        message: '删除成功!'
+                });
+                }).catch(() => {
+                this.$message({
+                    type: 'info',
+                    message: '已取消删除'
+                });          
+            });
+        }
+    }
 }
 </script>
 
@@ -167,22 +234,13 @@ export default {
         padding: 12px 15px;
         font-weight: 400;
         border: 1px solid #eee;
-        font-size: 15px;
+        font-size: 14px;
     }
     table td{
         font-size: 14px;
     }
     .shi{
         position: relative;
-        padding-left: 28px;
-    }
-    .shi i{
-        width: 20px;
-        height: 20px;
-        background-color: #fff;
-        position: absolute;
-        top: 0;
-        left: 0;
     }
     .beizhu{
         color: #888;

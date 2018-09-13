@@ -45,6 +45,7 @@ export default {
     }
     .Cy_tit .router-link-active{
         color:#22d7bb;
+        background: 0 0;
     }
     .Cy_tit a{
         color:#888;

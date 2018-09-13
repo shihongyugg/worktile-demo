@@ -1,10 +1,5 @@
 <template>
     <div class="Muban">
-        <!-- <div class="X_wrap">
-            <div class="X_center">
-                <p>新功能正在开发中，敬请期待。</p>
-            </div>
-        </div> -->
         <div class="moudle">
             <div class="M_sour">
                 <i class="icon iconfont icon-search"></i>
@@ -35,7 +30,7 @@
                             <tr v-for="(v,index) of mu">
                                 <td>
                                     <div class="shi">
-                                        <i :class="{'iconfont icon-renwu':v.sp == '项目处理','iconfont icon-quexianguanli':v.sp == '缺陷管理','iconfont icon-guanli':v.sp =='测试管理'}"></i>
+                                        <i :class="{'iconfont icon-huiyuanxiaohuojian':v.sp == '项目处理','iconfont icon-quexianguanli':v.sp == '缺陷管理','iconfont icon-guanli':v.sp =='测试管理'}"></i>
                                         <span>{{v.sp}}</span>
                                     </div>
                                 </td>
@@ -52,7 +47,7 @@
                                     <a href="javascript:"><i class="iconfont icon-bianji"></i></a>
                                     <!-- <a href="javascript:" @click="delet($index)"><i class="iconfont icon-huishouzhan"></i></a> -->
                                     <template>
-                                        <el-button type="text" @click="open2($index)"><i class="iconfont icon-huishouzhan"></i></el-button>
+                                        <el-button type="text" @click="open2(v.id)"><i class="iconfont icon-huishouzhan"></i></el-button>
                                     </template>
                                 </td>
                             </tr>
@@ -71,18 +66,21 @@ export default {
             ind:["项目模板","备注","类型","状态","操作"],
             mu:[
                 {
+                    id:1,
                     sp:'项目处理',
                     content:'适用于最简单的事务管理事',
                     nex:'通用',
                     state:'已启用'
                 },
                 {
+                    id:2,
                     sp:'缺陷管理',
                     content:'适用于缺陷管理',
                     nex:'通用',
                     state:'未完成'
                 },
                 {
+                    id:3,
                     sp:'测试管理',
                     content:'适用于测试用例管理',
                     nex:'软件',
@@ -92,16 +90,22 @@ export default {
         }
     },
     methods:{
-        open2(index) {
+        open2:function(id) {
             this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
                 confirmButtonText: '确定',
                 cancelButtonText: '取消',
                 type: 'warning'
                 }).then(() => {
-                    this.mu.splice(index,1);
-                this.$message({
-                    type: 'success',
-                    message: '删除成功!'
+                    // 删除某一个
+                    for (var i=0;i<this.mu.length;i++){
+                        if (this.mu[i].id == id) {
+                            this.mu.splice(i, 1);
+                            break;
+                        }
+                    }
+                    this.$message({
+                        type: 'success',
+                        message: '删除成功!'
                 });
                 }).catch(() => {
                 this.$message({
@@ -119,7 +123,7 @@ export default {
     .el-button--text{
         color:#888;
     }
-    .icon-renwu{
+    .icon-huiyuanxiaohuojian{
         color:#99d561
     }
     .icon-quexianguanli{
@@ -218,7 +222,7 @@ export default {
     table th{
         color: #666;
     }
-    table th,table td{
+    table th{
         padding: 12px 15px;
         font-weight: 400;
         border: 1px solid #eee;
@@ -226,6 +230,7 @@ export default {
     }
     table td{
         font-size: 14px;
+        padding: 5px 12px;
     }
     .shi{
         position: relative;

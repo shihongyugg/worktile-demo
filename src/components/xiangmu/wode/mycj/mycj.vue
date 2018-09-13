@@ -48,6 +48,7 @@ export default {
     }
     .Cj_tit .router-link-active{
         color:#22d7bb;
+        background: 0 0;
     }
     .Cj_tit a:hover{
         color:#22d7bb;
