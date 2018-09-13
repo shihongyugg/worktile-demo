@@ -1,9 +1,9 @@
 <template>
     <div class="Cy">
         <div class="Cy_tit">
-            <a href="javascript:" class="a_link">活动任务</a>
-            <a href="javascript:">完成任务</a>
+            <router-link v-for="v of list" :to="v.url" class="a_link">{{v.title}}</router-link>
         </div>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -11,23 +11,41 @@
 export default {
     data(){
         return{
-            
+            list:[
+                {
+                   title:"活动任务",
+                   url:"/xiangmu/wode/mycy/huodong/"
+                },
+                {
+                   title:"完成任务",
+                   url:"/xiangmu/wode/mycy/wancheng"
+                }
+            ]
         }
     }
 }
 </script>
 
 <style style="scss" scoped>
+    .Cy{
+        height: 100%;
+    }
     .Cy_tit{
+        height: 38px;
         line-height: 38px;
         font-size: 14px;
-        padding: 1px;
+        padding: 1px 15px;
+        background-color: #fff;
     }
     .Cy_tit .a_link{
         position: relative;
         padding-left: 20px;
         margin-right: 40px;
+        color:#333;
+    }
+    .Cy_tit .router-link-active{
         color:#22d7bb;
+        background: 0 0;
     }
     .Cy_tit a{
         color:#888;

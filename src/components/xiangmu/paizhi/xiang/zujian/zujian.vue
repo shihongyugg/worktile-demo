@@ -24,22 +24,19 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>组件名称</th>
-                                <th>备注</th>
-                                <th>支持平台</th>
-                                <th>操作</th>
+                                <th v-for="val of ind">{{val}}</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr v-for="(v,index) of mu">
                                 <td>
                                     <div class="shi">
-                                        <i></i>
-                                        <span>看板</span>
+                                        <i :class="v.pic" :style="{color:v.color}"></i>
+                                        <span>{{v.sp}}</span>
                                     </div>
                                 </td>
                                 <td>
-                                    <span class="beizhu">用看板的方式分组展示任务</span>
+                                    <span class="beizhu">{{v.content}}</span>
                                 </td>
                                 <td class="con">
                                     <i class="iconfont icon-diannao"></i>
@@ -47,9 +44,9 @@
                                     <i class="iconfont icon-anzhuo"></i>
                                 </td>
                                 <td class="con extend">
-                                    <a href="javascript:">
-                                        <i class="wtf iconfont icon-huishouzhan"></i>
-                                    </a>
+                                    <template>
+                                        <el-button type="text" @click="open2(v.id)"><i class="iconfont icon-huishouzhan"></i></el-button>
+                                    </template>
                                 </td>
                             </tr>
                         </tbody>
@@ -62,19 +59,105 @@
 
 <script>
 export default {
-
+    data(){
+        return{
+            ind:["组件名称","备注","支持平台","操作"],
+            mu:[
+                {
+                    id:1,
+                    sp:'看板',
+                    content:'用看板的方式分组展示任务',
+                    color:"#18bfa4",
+                    pic:'iconfont icon-dashboard'
+                },
+                {
+                    id:2,
+                    sp:'迭代',
+                    content:'用于敏捷开发管理中的迭代管理，支持迭代统计、故事板及规划',
+                    color:"#9473fd",
+                    pic:'iconfont icon-diedaijianying'
+                },
+                {
+                    id:3,
+                    sp:'列表',
+                    content:'用列表的方式直观的展示任务',
+                    color:"#2cccda",
+                    pic:'iconfont icon-xiangqing'
+                },
+                {
+                    id:4,
+                    sp:'时间',
+                    content:'用甘特图的方式展示任务，支持任务视图与人员视图',
+                    color:"#ffd234",
+                    pic:'iconfont icon-shijian'
+                },
+                {
+                    id:5,
+                    sp:'表格',
+                    content:'用表格的方式展示任务，支持表头自定义',
+                    color:"#22d7bb",
+                    pic:'iconfont icon-biaoge1'
+                },
+                {
+                    id:6,
+                    sp:'报表',
+                    content:'提供基于任务的多维度统计，可以自定义统计报表',
+                    color:"#4e8af9",
+                    pic:'iconfont icon-baobiaox'
+                }
+            ]
+        }
+    },
+    methods:{
+        open2(id) {
+            this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+                }).then(() => {
+                    for (var i=0;i<this.mu.length;i++){
+                        if (this.mu[i].id == id) {
+                            this.mu.splice(i, 1);
+                            break;
+                        }
+                    }
+                    this.$message({
+                        type: 'success',
+                        message: '删除成功!'
+                    });
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消删除'
+                });          
+            });
+        }
+    }
 }
 </script>
 
 <style style="scss" scoped>
+    .el-button--text{
+        color:#888;
+    }
     .iconfont{
         font-size: 18px;
         color:#aaa;
     }
+    .icon-dashboard{
+        color:#18bfa4;
+        font-size: 14px;
+        margin: 3px;
+        vertical-align: middle;
+    }
+    .icon-diedaijianying{
+        color:#9473fd;
+        font-size: 20px;
+    }
     .Muban{
         margin: 15px;
         width: calc(100% - 30px);
-        height: 523px;
+        height: calc(100% - 120px);
         background: #fff;
         position: relative;
     }
@@ -147,7 +230,7 @@ export default {
     table th{
         color: #666;
     }
-    table th,table td{
+    table th{
         padding: 12px 15px;
         font-weight: 400;
         border: 1px solid #eee;
@@ -155,18 +238,17 @@ export default {
     }
     table td{
         font-size: 14px;
+        padding: 5px 15px;
     }
     .shi{
         position: relative;
         padding-left: 28px;
     }
     .shi i{
-        width: 20px;
-        height: 20px;
         background-color: #fff;
         position: absolute;
-        top: 0;
-        left: 0;
+        top: 0px;
+        left: 5px;
     }
     .beizhu{
         color: #888;

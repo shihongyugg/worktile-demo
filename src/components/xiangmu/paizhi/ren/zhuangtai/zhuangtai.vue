@@ -23,33 +23,31 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>任务状态</th>
-                                <th>备注</th>
-                                <th>类型</th>
-                                <th>分组</th>
-                                <th>操作</th>
+                                <th v-for="val of ind">{{val}}</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr v-for="(v,index) of mu">
                                 <td>
                                     <div class="shi">
-                                        <i></i>
-                                        <span>未开始</span>
+                                        <i :class='v.img' :style='{color:v.color}'></i>
+                                        <span>{{v.sp}}</span>
                                     </div>
                                 </td>
                                 <td>
-                                    <span class="beizhu">用于初始化状态</span>
+                                    <span class="beizhu">{{v.content}}</span>
                                 </td>
                                 <td class="con beizhu">
-                                    未开始
+                                    {{v.nex}}
                                 </td>
                                 <td class="con beizhu">
-                                    通用状态
+                                    {{v.state}}
                                 </td>
                                 <td class="con extend">
                                     <a href="javascript:"><i class="iconfont icon-bianji"></i></a>
-                                    <a href="javascript:"><i class="iconfont icon-huishouzhan"></i></a>
+                                    <template>
+                                        <el-button type="text" @click="open2(v.id)"><i class="iconfont icon-huishouzhan"></i></el-button>
+                                    </template>
                                 </td>
                             </tr>
                         </tbody>
@@ -62,15 +60,76 @@
 
 <script>
 export default {
-
+    data(){
+        return {
+            ind:["任务状态","备注","类型","分组","操作"],
+            mu:[
+                {
+                    id:1,
+                    sp:'未开始',
+                    content:'用于初始状态',
+                    nex:'未开始',
+                    state:'通用状态',
+                    img:'iconfont icon-icon02',
+                    color:'rgb(250, 90, 85)'
+                },
+                {
+                    id:2,
+                    sp:'进行中',
+                    content:'任务正在处理',
+                    nex:'进行中',
+                    state:'通用状态',
+                    img:'iconfont icon-jinhangzhong',
+                    color:'rgb(255, 164, 21)'
+                },
+                {
+                    id:3,
+                    sp:'已完成',
+                    content:'任务已经完成',
+                    nex:'已完成',
+                    state:'通用状态',
+                    img:'iconfont icon-yiwancheng',
+                    color:'rgb(34, 215, 187)'
+                }
+            ]
+        }
+    },
+    methods:{
+        open2(id) {
+            this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+                }).then(() => {
+                    for (var i=0;i<this.mu.length;i++){
+                        if (this.mu[i].id == id) {
+                            this.mu.splice(i, 1);
+                            break;
+                        }
+                    }
+                    this.$message({
+                        type: 'success',
+                        message: '删除成功!'
+                    });
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消删除'
+                });          
+            });
+        }
+    }
 }
 </script>
 
 <style style="scss" scoped>
+    .el-button--text{
+        color:#888;
+    }
     .Muban{
         margin: 15px;
         width: calc(100% - 30px);
-        height: 523px;
+        height:calc(100% - 120px);
         background: #fff;
         position: relative;
     }
@@ -159,26 +218,27 @@ export default {
     table th{
         color: #666;
     }
-    table th,table td{
+    table th{
         padding: 12px 15px;
         font-weight: 400;
         border: 1px solid #eee;
-        font-size: 15px;
+        font-size: 14px;
     }
     table td{
         font-size: 14px;
+        padding: 5px 15px;
     }
     .shi{
         position: relative;
         padding-left: 28px;
     }
     .shi i{
-        width: 20px;
-        height: 20px;
+        font-weight:600;
+        font-size: 14px;
         background-color: #fff;
         position: absolute;
-        top: 0;
-        left: 0;
+        top: 5px;
+        left: 8px;
     }
     .beizhu{
         color: #888;

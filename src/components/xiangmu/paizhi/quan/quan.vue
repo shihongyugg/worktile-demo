@@ -26,10 +26,15 @@ export default {
 </script>
 
 <style style="scss" scoped>
+    .Xnim{
+        height: 100%;
+    }
     .Xnim_tit{
+        height: 38px;
         line-height: 38px;
-        font-size: 14px;
-        
+        font-size: 13px;
+        padding:1px 15px;
+        background: #fff;
     }
     .Xnim_tit .a_link{
         position: relative;

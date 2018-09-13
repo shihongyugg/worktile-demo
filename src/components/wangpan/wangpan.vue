@@ -7,7 +7,7 @@
             </div>
             <ul>
                 <li>  
-                   <i class="iconfont icon-xiaosanjiaodown-copy" @click="show = !show"></i><router-link to='/wangpan/qywangpan'><i class="iconfont icon-wenjianjia i3"></i>企业网盘</router-link> 
+                   <i class="iconfont icon-xiaosanjiaodown-copy" @click="show = !show"></i><router-link to='/wangpan/qywangpan' class="left"><i class="iconfont icon-wenjianjia i3"></i>企业网盘</router-link> 
                 </li>
                  <div v-for="item of list" v-if="show">
                       <ul class="ul2">
@@ -17,7 +17,7 @@
                       </ul>
                    </div>
                  <li>
-                    <i class="iconfont icon-xiaosanjiaodown-copy" @click="show1 = !show1"></i><router-link to='/wangpan/gerenwangpan'><i class="iconfont icon-wenjianjia i4"></i>个人网盘</router-link>
+                    <i class="iconfont icon-xiaosanjiaodown-copy" @click="show1 = !show1"></i><router-link to='/wangpan/gerenwangpan' class="left"><i class="iconfont icon-wenjianjia i4"></i>个人网盘</router-link>
                 </li> 
                 <div v-for="item of list2" v-if="show1"> 
                      <ul class="ul2">
@@ -27,16 +27,16 @@
                       </ul>
                 </div>
                  <li >
-                    <i class="iconfont icon-xiaosanjiaodown-copy" ></i> <router-link to=''>成员</router-link>
+                    <i class="iconfont icon-xiaosanjiaodown-copy" ></i> 成员
                 </li> 
                  <li data-toggle="modal" data-target="#layer">
-                    <i class="iconfont icon-xiaosanjiaodown-copy"></i> <router-link to=''>标签</router-link>
+                    <i class="iconfont icon-xiaosanjiaodown-copy"></i>标签
                 </li> 
                  <li >
-                    <i class="iconfont icon-gongxiang"> </i><router-link to='/wangpan/yuwogongxiang'>与我共享</router-link>
+                    <i class="iconfont icon-gongxiang"> </i><router-link to='/wangpan/yuwogongxiang' class="left">与我共享</router-link>
                 </li> 
                  <li >
-                   <i class="iconfont icon-huishouzhan-copy"></i> <router-link to='/wangpan/huishouzhan'>回收站</router-link>
+                   <i class="iconfont icon-huishouzhan-copy"></i> <router-link to='/wangpan/huishouzhan' class="left">回收站</router-link>
                 </li> 
             </ul>
        </div>
@@ -147,6 +147,7 @@ export default {
         padding: 8px 10px 8px 45px;
         line-height: 24px;
         cursor: pointer;
+        color: #666;  
     }
     li a{
         color: #666;  
@@ -201,9 +202,9 @@ export default {
         border-radius: 8px;
     }
     .modal-header  i{
-        font-size: 16px;
-        float: right;
-        margin: 17px 26px;
+           font-size: 35px;
+            float: right;
+            margin: 8px 26px;
     }
     .modal-header p{
        padding: 17px 22px;
@@ -236,5 +237,13 @@ export default {
         display: block;
         font-size: 5rem;
         margin: 35px 265px;
+    }
+    .router-link-active{
+        background:0 0;
+        color:#22d7bb;
+        border-right: 4px solid #22d7bb;
+    }
+    .left{
+        padding-right:96px;
     }
 </style>

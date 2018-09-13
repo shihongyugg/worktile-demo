@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <div style="height:100%">
         <div class="M_tit">
-            <span><i class="iconfont icon-shezhi"></i>配置中心</span>
+            <span><i class="iconfont icon-shezhi"></i>配置中心<i class="iconfont icon-iconset0143"></i></span>
             <div class="M_top">
                 <router-link v-for="v of Mlist" :to="v.url">{{v.title}}</router-link>
             </div>
@@ -45,6 +45,13 @@ export default {
 </script>
 
 <style style="scss" scoped>
+    .icon-iconset0143{
+        /* position: absolute; */
+        /* top:0; */
+        /* left:0;  */
+        margin-left:5px;
+        vertical-align: middle;
+    }
     .M_tit{
         height: 50px;
         padding: 0 15px;
@@ -53,7 +60,7 @@ export default {
         line-height: 50px;
         color: #333;
         font-size: 15px;
-        padding: 0 15px;
+        padding: 1px 15px;
     }
     .M_tit span{
         float: left;
@@ -82,9 +89,7 @@ export default {
         border-bottom: 2px solid #22d7bb;
     }
     .M_down{
-        background: #fff;
-        height: 38px;
-        padding: 1px;
+        height:100%;
     }
 </style>
 

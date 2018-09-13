@@ -23,35 +23,32 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>数据源名称</th>
-                               
-                                <th>备注</th>
-                                
-                                <th>分组</th>
-                                <th>操作</th>
+                                <th v-for="val of ind">{{val}}</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr v-for="(v,index) of mu">
                                 <td>
                                     <div class="shi">
-                                        <span>需求分类</span>
+                                        <span>{{v.sp}}</span>
                                     </div>
                                 </td>
                                 <td>
                                     <span class="beizhu">
-                                        表示需求分类，如产品、技术与安全
+                                        {{v.content}}
                                     </span>
                                 </td>
                                 <td class="beizhu">
-                                    软件
+                                    {{v.nex}}
                                 </td>
                                
                                 <td class="con extend">
                                     <a href="javascript:">
                                         <i class="wtf iconfont icon-shezhi"></i>配置</a>
                                     <a href="javascript:"><i class="iconfont icon-bianji"></i></a>
-                                    <a href="javascript:"><i class="iconfont icon-huishouzhan"></i></a>
+                                    <template>
+                                        <el-button type="text" @click="open2(v.id)"><i class="iconfont icon-huishouzhan"></i></el-button>
+                                    </template>
                                 </td>
                             </tr>
                         </tbody>
@@ -64,15 +61,74 @@
 
 <script>
 export default {
-
+    data(){
+        return {
+            ind:["数据源名称","备注","分组","操作"],
+            mu:[
+                {
+                    id:1,
+                    sp:'需求分类',
+                    content:'表示需求分类，如产品、技术与安全',
+                    nex:'软件'
+                },
+                {
+                    id:2,
+                    sp:'需求来源',
+                    content:'表示需求来源与渠道',
+                    nex:'软件'
+                },
+                {
+                    id:3,
+                    sp:'严重程度',
+                    content:'表示缺陷的严重程度',
+                    nex:'软件'
+                },
+                {
+                    id:4,
+                    sp:'缺陷类型',
+                    content:'表示缺陷属于哪种类型',
+                    nex:'软件'
+                }
+            ]
+        }
+    },
+    methods:{
+        open2:function(id) {
+            this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+                }).then(() => {
+                    // 删除某一个
+                    for (var i=0;i<this.mu.length;i++){
+                        if (this.mu[i].id == id) {
+                            this.mu.splice(i, 1);
+                            break;
+                        }
+                    }
+                    this.$message({
+                        type: 'success',
+                        message: '删除成功!'
+                });
+                }).catch(() => {
+                this.$message({
+                    type: 'info',
+                    message: '已取消删除'
+                });          
+            });
+        }
+    }
 }
 </script>
 
 <style style="scss" scoped>
+    .el-button--text{
+        color:#888;
+    }
     .Muban{
         margin: 15px;
         width: calc(100% - 30px);
-        height: 523px;
+        height:calc(100% - 120px);
         background: #fff;
         position: relative;
     }
@@ -162,7 +218,7 @@ export default {
     table th{
         color: #666;
     }
-    table th,table td{
+    table th{
         padding: 12px 15px;
         font-weight: 400;
         border: 1px solid #eee;
@@ -170,18 +226,7 @@ export default {
     }
     table td{
         font-size: 14px;
-    }
-    .shi{
-        position: relative;
-        padding-left: 28px;
-    }
-    .shi i{
-        width: 20px;
-        height: 20px;
-        background-color: #fff;
-        position: absolute;
-        top: 0;
-        left: 0;
+        padding: 5px 15px;
     }
     .beizhu{
         color: #888;

@@ -17,7 +17,7 @@ import Xx from './xx'
 export default new Router({
     routes: [
         {
-            path: '/xiaoxi',
+            path: '/xiaoxi/',
             component: Xiaoxi,
             name: '消息',
             children:Xx.xx
