@@ -45,13 +45,26 @@
                                         </a>
                                     </li>
                                     <li>    
-                                        <a href="javascript:;">
+                                        <!-- <a href="javascript:;">
                                             <i class="iconfont channel_i">&#xe601;</i>
+                                        </a> -->
+                                         <a href="javascript:;">
+                                              <el-upload
+                                                class="upload-demo"
+                                                action="https://jsonplaceholder.typicode.com/posts/"
+                                                :on-preview="handlePreview"
+                                                :on-remove="handleRemove"
+                                                :file-list="fileList2"
+                                                list-type="picture">                                   
+                                                    <i class="iconfont channel_i2" size="small" type="primary">&#xe601;</i>
+                                              
+                                                </el-upload>
+                                            
                                         </a>
                                     </li>
                                     <li>    
                                         <a href="javascript:;">
-                                            <i class="iconfont channel_i">&#xe81a;</i>
+                                            <i class="iconfont channel_i">&#xe611;</i>
                                         </a>
                                     </li>
                                     <li>    
@@ -59,6 +72,8 @@
                                             <i class="iconfont channel_i">&#xe606;</i>
                                         </a>
                                     </li>
+                                  
+
                                 </ul>
                             </div>
                               <textarea name="" id="" cols="30" rows="10"></textarea>
@@ -79,29 +94,7 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-  .lcfont {
-    font-family: lcfont!important;
-}
-.lcfont {
-    font-family: lcfont!important;
-}
-@font-face {
-  font-family: 'iconfont';  /* project id 442030 */
-  src: url('//at.alicdn.com/t/font_442030_ethtxpuhbar.eot');
-  src: url('//at.alicdn.com/t/font_442030_ethtxpuhbar.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_442030_ethtxpuhbar.woff') format('woff'),
-  url('//at.alicdn.com/t/font_442030_ethtxpuhbar.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_442030_ethtxpuhbar.svg#iconfont') format('svg');
-}
-.iconfont{
-  font-family:"iconfont" !important;
-  font-size:16px;font-style:normal;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-stroke-width: 0.2px;
-  -moz-osx-font-smoothing: grayscale;
-  color: #aaa;
-  font-size: 26px;
-}
+
     .channel-meta {
     padding: 20px 25px;
     color: #b9b9b9;
@@ -119,7 +112,6 @@ export default {
     width: 75%;
     height: 82%;
     overflow: auto;
-  
     margin-top: 20px;
     background-color: #fff;
 }
@@ -230,7 +222,13 @@ textarea{
     float: left;
 }
 .channel_btn ul li a{
+    font-size: 14px;
         color: #aaa;
     padding: 8px 12px 8px 13px;
+}
+.channel_i2{
+    position: absolute;
+        top: 4px;
+    left: 51px;
 }
 </style>
