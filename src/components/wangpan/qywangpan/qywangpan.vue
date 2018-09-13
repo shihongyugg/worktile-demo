@@ -3,7 +3,11 @@
         <div class="div1">
             <a href="javascript:;" class="ng-binding"><i class="iconfont icon-wenjianjia i3"></i>企业网盘</a>  
         <div class="fr">
-            <button>+ 新建</button>
+            <input type="text" v-model="addDetail.title" placeholder="文件夹" />
+			<input type="text" v-model="addDetail.daxiao" placeholder="大小" />
+			<input type="text" v-model="addDetail.ren"  placeholder="发布人" />
+			<input type="date" v-model="addDetail.shijian"  placeholder="发布时间" />
+            <button @click="adddetail">+ 新建</button>
             <button v-on:click="show = !show"> <i class="iconfont icon-shangchuan i4"></i> 上传文件</button>
             <div class="xlk" v-if="show">
                 <ul>
@@ -23,13 +27,13 @@
                     <td>更新时间</td>
                 </tr>
                 <tr v-for="(item,index) of list">
-                        <td><router-link :to='item.url'><i class="iconfont icon-wenjianjia i3"></i>{{item.title}}</router-link> </td>
-                        <td>{{item.daxiao}} </td>
-                        <td>
+                        <td v-model="addDetail.title" ><router-link :to='item.url'><i class="iconfont icon-wenjianjia i3"></i>{{item.title}}</router-link> </td>
+                        <td v-model="addDetail.daxiao" >{{item.daxiao}} </td>
+                        <td v-model="addDetail.ren" >
                             <span>M</span>
                             {{item.ren}}
                         </td>
-                        <td>{{item.shijian}} </td> <i class="iconfont icon-huishouzhan-copy i5"  @click="deletelist(index)"></i>   
+                        <td v-model="addDetail.shijian" >{{item.shijian}} </td> <i class="iconfont icon-huishouzhan-copy i5"  @click="deletelist(index)"></i>   
                 </tr>
             </table>
         </div>   
@@ -42,6 +46,7 @@
 export default {
     data(){
         return{
+            addDetail: {},
             show:false,
             list:[
                 {
@@ -72,6 +77,14 @@ export default {
         deletelist(index) {
             this.list.splice(index, 1);
         },
+        adddetail() {
+            this.list.push({
+                title: this.addDetail.title,
+                daxiao: this.addDetail.daxiao,
+                ren: this.addDetail.ren,
+                shijian:this.addDetail.shijian,
+            })
+        }
     }
 }
 </script>
@@ -200,5 +213,8 @@ export default {
      .i5{
          margin: 14px 0;
          display: inline-block;
+     }
+     .fr input{
+         width: 119px;
      }
 </style>
