@@ -45,6 +45,7 @@ export default {
     }
     .Fp_tit .router-link-active{
         color:#22d7bb;
+        background: 0 0;
     }
     .Fp_tit a{
         color:#888;

@@ -28,32 +28,31 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>任务类型</th>
-                                <th>备注</th>
-                                <th>分组</th>
-                                <th>操作</th>
+                                <th v-for="val of ind">{{val}}</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr v-for="(v,index) of mu">
                                 <td>
                                     <div class="shi">
-                                        <i></i>
-                                        <span>任务</span>
+                                        <i class="iconfont icon-renwu" :style='{color:v.color}'></i>
+                                        <span>{{v.sp}}</span>
                                     </div>
                                 </td>
                                 <td>
-                                    <span class="beizhu">适用于最简单的事务管理事</span>
+                                    <span class="beizhu">{{v.content}}</span>
                                 </td>
                                 <td>
-                                    通用
+                                    {{v.nex}}
                                 </td>
                                 <td class="con extend">
                                     <a href="javascript:">
                                         <i class="wtf iconfont icon-shezhi"></i>配置</a>
                                     <a href="javascript:"><i class="iconfont icon-fuzhi"></i></a>
                                     <a href="javascript:"><i class="iconfont icon-bianji"></i></a>
-                                    <a href="javascript:"><i class="iconfont icon-huishouzhan"></i></a>
+                                    <template>
+                                        <el-button type="text" @click="open2(v.id)"><i class="iconfont icon-huishouzhan"></i></el-button>
+                                    </template>
                                 </td>
                             </tr>
                         </tbody>
@@ -67,11 +66,73 @@
 
 <script>
 export default {
-
+    data(){
+        return {
+            ind:["任务类型","备注","分组","操作"],
+            mu:[
+                {
+                    id:1,
+                    sp:'任务',
+                    content:'适用于最简单的事务管理事',
+                    nex:'通用',
+                    color:'#22d7bb'
+                },
+                {
+                    id:2,
+                    sp:'事务',
+                    content:'用于简单的日常事务管理',
+                    nex:'通用',
+                    color:'#9473fd'
+                },
+                {
+                    id:3,
+                    sp:'工时任务',
+                    content:'支持工时评估与记录的任务类型',
+                    nex:'通用',
+                    color:'#22d7bb'
+                },
+                {
+                    id:4,
+                    sp:'敏捷需求',
+                    content:'支持敏捷开发中的需求记录类型',
+                    nex:'软件',
+                    color:'#66c060'
+                }
+            ]
+        }
+    },
+    methods:{
+        open2(id) {
+            this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+                }).then(() => {
+                    for (var i=0;i<this.mu.length;i++){
+                        if (this.mu[i].id == id) {
+                            this.mu.splice(i, 1);
+                            break;
+                        }
+                    }
+                this.$message({
+                    type: 'success',
+                    message: '删除成功!'
+                });
+                }).catch(() => {
+                this.$message({
+                    type: 'info',
+                    message: '已取消删除'
+                });          
+            });
+        }
+    }
 }
 </script>
 
 <style style="scss" scoped>
+    .el-button--text{
+        color:#888;
+    }
     .Muban{
         margin: 15px;
         width: calc(100% - 30px);
@@ -165,7 +226,7 @@ export default {
     table th{
         color: #666;
     }
-    table th,table td{
+    table th{
         padding: 12px 15px;
         font-weight: 400;
         border: 1px solid #eee;
@@ -173,6 +234,7 @@ export default {
     }
     table td{
         font-size: 14px;
+        padding: 5px 15px;
     }
     .shi{
         position: relative;
