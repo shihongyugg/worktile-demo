@@ -3,9 +3,18 @@
         <div class="unread">
             <div class="unread_header">
                 <div class="unread_header_l">
-                    <img src="https://s3.cn-north-1.amazonaws.com.cn/lcavatar/calendar_24x24.png" alt="">
+                     <el-dropdown>
+                    <span class="el-dropdown-link">
+                        <img src="https://s3.cn-north-1.amazonaws.com.cn/lcavatar/calendar_24x24.png" alt="">
                     <a href="javascript:;">
-                    日程助手<i class="fa fa-angle-down"></i> </a>
+                     日程助手<i class="el-icon-arrow-down el-icon--right"></i>
+                     </a>
+                    </span>
+                    <el-dropdown-menu slot="dropdown">
+                        <el-dropdown-item> 置顶当前会话</el-dropdown-item>
+                        <el-dropdown-item> 设置 </el-dropdown-item>
+                    </el-dropdown-menu>
+                    </el-dropdown>
                 </div>
                 <div class="secondary-text"></div>
                 <div class="unread_header_r">

@@ -3,15 +3,58 @@
         <div class="unread">
             <div class="unread_header">
                 <div class="unread_header_l">
-                    <img src="https://s3.cn-north-1.amazonaws.com.cn/lcavatar/381df779-62e6-49de-8792-620b94a5582d_40x40.png" alt="">
+                     <el-dropdown>
+                    <span class="el-dropdown-link">
+                        <img src="https://s3.cn-north-1.amazonaws.com.cn/lcavatar/calendar_24x24.png" alt="">
                     <a href="javascript:;">
-                     企业公告</a>
+                     企业公告<i class="el-icon-arrow-down el-icon--right"></i>
+                     </a>
+                    </span>
+                    <el-dropdown-menu slot="dropdown">
+                        <el-dropdown-item> 置顶当前会话
+        </el-dropdown-item>
+                        <el-dropdown-item> 添加服务集成
+        </el-dropdown-item>
+                        <el-dropdown-item> 消息通知设置
+        </el-dropdown-item>
+                    </el-dropdown-menu>
+                    </el-dropdown>
                 </div>
                 <div class="secondary-text">
     用于全企业成员发布公告</div>
-                <!-- <div class="unread_header_r">
-                    <a href="">全部标记为已读</a>
-                </div> -->
+                <div class="unread_header_r">
+                   <i class="iconfont unread_i" @click="show1 = !show1">&#xe629;</i>
+
+                </div>
+                <transition name="fade">
+                     <div class="slide-show" v-if="show1">
+                        <div class="slide-header">
+                            <h3  class="ng-binding ">成员</h3>
+                            <a href="javascript:;" class="slide-close" >
+                                <i class=" iconfont close-link" @click="show1 = !show1">&#xe617;</i>
+                                </a>
+                        </div>
+                        <div class="slide-cont">
+                            <div class="slide-info">
+                                <img src="https://s3.cn-north-1.amazonaws.com.cn/lcavatar/381df779-62e6-49de-8792-620b94a5582d_80x80.png" alt="">
+                            </div>
+                            <div class="account-info-meta">
+                                <span class="display_name ">小特机器人</span>
+                                <lc-state state="vm.member.state"></lc-state>
+                              <span class="member-meta" >机器人</span><!-- end ngIf: (vm.member | isBot) -->
+                                <br>
+                                <span class="name">@xiaote</span>
+                            </div>
+                            <dl class="account-ext ng-scope" ng-if="(vm.member.uid == global.config.botId)">
+                                <div class="info-item">
+                                    <span class="info-name ng-scope" translate="message.EMAIL">邮箱</span>
+                                    <span class="info-text ng-binding">support@worktile.com</span>
+                                </div>
+                            </dl>
+                        </div>
+                     </div>
+                </transition>
+
                 <div class="h_m">
                     <ul class="nav-pills">
                         <li v-for="item of tabNav" :class="{cur:item.title == $route.name}" >
@@ -38,6 +81,7 @@
 export default {
 data () {
     return {
+          show1:false,
         tabNav:[
           {
             title:"消息",
@@ -82,7 +126,7 @@ data () {
     .unread_header_l img{
         position: absolute;
          top: 12px;
-         left: 17px;
+         left: 0px;
          width: 24px;
         height: 24px;
         line-height: 24px;
@@ -143,5 +187,111 @@ data () {
     font-size: 14px;
 }
 
+.slide-show{
+    box-shadow: 0 16px 24px 2px rgba(0,0,0,.04), 0 6px 30px 5px rgba(0,0,0,.08), 0 8px 10px -5px rgba(0,0,0,.12);
+    position: fixed;
+    right: 0;
+    width: 350px;
+    height: 100%;
+    background: #fff;
+    z-index: 1;
+    transition: right .1s ease-in-out;
+    flex-direction: column;
+}
+ .slide-header {
+    height: 50px;
+    padding: 0 20px;
+    border-bottom: solid 1px #eee;
+}
+ .slide-header h3 {
+    float: left;
+    font-size: 16px;
+    margin-top: 0;
+    line-height: 50px;
+    margin-bottom: 0;
+    color: #333;
+}
+.slide-close {
+    line-height: 50px;
+    color: #ddd;
+    float: right;
+}
 
+.close-link {
+    color: #ddd;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+.close-link:hover{
+    color: #22d7bb;
+}
+.slide-info{
+    padding: 25px 0;
+}
+ .slide-info img {
+    width: 68px;
+    height: 68px;
+    line-height: 68px;
+    font-size: 14px;
+    border-radius: 38px;
+    margin-left: 34px;
+}
+.account-info-meta {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 136px;
+    margin-top: -146px;
+}
+ .display_name {
+    color: #333;
+    font-size: 16px;
+    font-weight: 700;
+    margin-right: 5px;
+}
+.member-meta {
+    display: inline-block;
+    background: #fff;
+    padding: 2px 6px;
+    border-radius: 3px;
+    color: #8f8f8f;
+    font-size: 12px;
+}
+ .name {
+    color: #aaa;
+    font-size: 12px;
+    margin-top: 8px;
+    display: inline-block;
+}
+ dl.account-ext {
+    padding: 5px 10px;
+    margin-bottom: 15px;
+}
+ dl.account-ext .info-item {
+    padding: 10px;
+    font-size: 14px;
+}
+ dl.account-ext .info-item .info-name {
+    float: left;
+    margin-left: 47px;
+    color: #aaa;
+}
+ dl.account-ext .info-item .info-text {
+    float: right;
+    width: 190px;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.unread_i{
+    position: absolute;
+   right: 57px;
+    top: 17px;
+    font-size: 24px;
+    color: #ddd;
+}
+.unread_i:hover{
+     color:#22d7bb;
+}
 </style>

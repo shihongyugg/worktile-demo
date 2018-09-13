@@ -8,7 +8,7 @@
                          消息
                      </span>
 
-                    <i class="iconfont" @click="show1 = !show1">&#xe64e;</i>
+                    <i class="iconfont m_i" @click="show1 = !show1">&#xe64e;</i>
                    <!-- 设置休眠时间 -->
                     <transition name="fade">
                           <div class="pop-menu" v-if="show1">
@@ -78,6 +78,7 @@
 </template>
 
 <script>
+import '../../assets/font/iconfont.css'
 export default {
     data () {
     return {
@@ -96,7 +97,7 @@ export default {
             url:'/xiaoxi/xiao'
           },
           {
-              pic:"https://s3.cn-north-1.amazonaws.com.cn/lcavatar/mission_24x24.png",
+              pic:"https://s3.cn-north-1.amazonaws.com.cn/lcavatar/calendar_24x24.png",
             title:'企业公告',
             url:'/xiaoxi/qi'
           },
@@ -125,6 +126,17 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+.m_i{
+      color: #ddd;
+    font-size: 20px;
+    padding-top: 18px;
+    position: absolute;
+}
+.h_font{
+    color: #ddd;
+    font-size: 24px;
+    padding-top: 20px;
+}
 //设置休眠时间
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
@@ -191,31 +203,11 @@ export default {
     line-height: 1.42857143;
 }
 
-.lcfont {
-    font-family: lcfont!important;
-}
-@font-face {
-  font-family: 'iconfont';  /* project id 442030 */
-  src: url('//at.alicdn.com/t/font_442030_ethtxpuhbar.eot');
-  src: url('//at.alicdn.com/t/font_442030_ethtxpuhbar.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_442030_ethtxpuhbar.woff') format('woff'),
-  url('//at.alicdn.com/t/font_442030_ethtxpuhbar.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_442030_ethtxpuhbar.svg#iconfont') format('svg');
-}
-.iconfont{
-  font-family:"iconfont" !important;
-  font-size:16px;font-style:normal;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-stroke-width: 0.2px;
-  -moz-osx-font-smoothing: grayscale;
-  color: #aaa;
-  line-height: 50px;
-  font-size: 16px;
-}
+
 .i_font{
    font-size: 12px;
     position: absolute;
-    margin-top: -33px;
+    margin-top: -16px;
     margin-left: 185px;
     color: #aaa;
     display: none;
@@ -288,19 +280,19 @@ export default {
         cursor: pointer;
          margin-left: -17px;
     }
-  .m_left_list ul li.cur{
+  .m_left_list ul li:hover{
         background: #e7f9f6;
         color: #22d7bb;
         border-right: 4px solid #22d7bb;
         box-shadow: 0 0 8px 2px #eee;
-        // box-shadow: 0 0 8px 2px #eee;
         background: 0 0;
     }
-  .m_left_list ul li a{  
+  .m_left_list ul li a{ 
+        box-shadow: 0 0 8px 2px #eee;
         color: #666;
     }
      .m_left_list ul li a:hover{
-      
+       box-shadow: 0 0 8px 2px #eee;
         text-decoration: none;
      }
     .m_left_list ul li img{

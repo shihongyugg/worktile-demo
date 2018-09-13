@@ -37,6 +37,30 @@
 
                         </div>
                         <div class="channel_bottom">
+                            <div class="channel_btn">
+                                <ul>
+                                    <li>    
+                                        <a href="javascript:;">
+                                            <i class="iconfont channel_i">&#xe6e9;</i>
+                                        </a>
+                                    </li>
+                                    <li>    
+                                        <a href="javascript:;">
+                                            <i class="iconfont channel_i">&#xe601;</i>
+                                        </a>
+                                    </li>
+                                    <li>    
+                                        <a href="javascript:;">
+                                            <i class="iconfont channel_i">&#xe81a;</i>
+                                        </a>
+                                    </li>
+                                    <li>    
+                                        <a href="javascript:;">
+                                            <i class="iconfont channel_i">&#xe606;</i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                               <textarea name="" id="" cols="30" rows="10"></textarea>
                           
                             <div class="channel_b_cont"></div>
@@ -55,7 +79,29 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-  
+  .lcfont {
+    font-family: lcfont!important;
+}
+.lcfont {
+    font-family: lcfont!important;
+}
+@font-face {
+  font-family: 'iconfont';  /* project id 442030 */
+  src: url('//at.alicdn.com/t/font_442030_ethtxpuhbar.eot');
+  src: url('//at.alicdn.com/t/font_442030_ethtxpuhbar.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_442030_ethtxpuhbar.woff') format('woff'),
+  url('//at.alicdn.com/t/font_442030_ethtxpuhbar.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_442030_ethtxpuhbar.svg#iconfont') format('svg');
+}
+.iconfont{
+  font-family:"iconfont" !important;
+  font-size:16px;font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+  color: #aaa;
+  font-size: 26px;
+}
     .channel-meta {
     padding: 20px 25px;
     color: #b9b9b9;
@@ -176,5 +222,15 @@ textarea{
     height: 63px;
     border: 1px solid #ddd;
     // border: 0;
+}
+.channel_btn{
+    margin-left: 6px;
+}
+.channel_btn ul li{
+    float: left;
+}
+.channel_btn ul li a{
+        color: #aaa;
+    padding: 8px 12px 8px 13px;
 }
 </style>
