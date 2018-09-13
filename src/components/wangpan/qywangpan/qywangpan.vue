@@ -22,16 +22,14 @@
                     <td>更新人</td>
                     <td>更新时间</td>
                 </tr>
-                <tr v-for="item of list">
-                        <td><i class="iconfont icon-wenjianjia i3"></i>{{item.title}}</td>
-                        <td>
-                            <router-link :to='item.url'>{{item.daxiao}}</router-link>
-                        </td>
+                <tr v-for="(item,index) of list">
+                        <td><router-link :to='item.url'><i class="iconfont icon-wenjianjia i3"></i>{{item.title}}</router-link> </td>
+                        <td>{{item.daxiao}} </td>
                         <td>
                             <span>M</span>
                             {{item.ren}}
                         </td>
-                        <td>{{item.shijian}}</td>    
+                        <td>{{item.shijian}} </td> <i class="iconfont icon-huishouzhan-copy i5"  @click="deletelist(index)"></i>   
                 </tr>
             </table>
         </div>   
@@ -58,17 +56,22 @@ export default {
                     daxiao:'-',
                     ren:'M',
                     shijian:'9月11 10:22',
-                     url:'/wangpan/qywangpan/quexianguanli'
+                    url:'/wangpan/qywangpan/quexianguanli'
                 },
                  {
                     title:'公司制度',
                     daxiao:'-',
                     ren:'M',
                     shijian:'9月11 10:21',
-                     url:'/wangpan/qywangpan/gongsizhidu'
+                    url:'/wangpan/qywangpan/gongsizhidu'
                 }   
             ]
         }          
+    },
+    methods:{
+        deletelist(index) {
+            this.list.splice(index, 1);
+        },
     }
 }
 </script>
@@ -150,6 +153,9 @@ export default {
             transition: padding-left .2s;
             font-size: 14px;
      }
+     td a{
+        color: #666;  
+     }
     .div2{
         width: 95%;
         margin: 20px auto;
@@ -190,5 +196,9 @@ export default {
      }
      .i4{
          font-size: 18px;
+     }
+     .i5{
+         margin: 14px 0;
+         display: inline-block;
      }
 </style>
