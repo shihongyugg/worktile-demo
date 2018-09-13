@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import myHome from "./components/home/home";
+// import myHome from "./components/home/home";
 export default {
   data() {
     return {
@@ -47,13 +47,13 @@ export default {
         },
         {
           title: "通讯录",
-          url: "/tongxunlu"
+          url: "/tongxunlu/"
         }
       ]
     };
   },
   components: {
-    myHome
+    // myHome
   }
 };
 </script>

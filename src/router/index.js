@@ -5,15 +5,13 @@ Vue.use(Router)
 
 import Xiaoxi from '../components/xiaoxi/xiaoxi'
 import Xiangmu from '../components/xiangmu/xiangmu'
-import xm from './xm'
 import Rili from '../components/rili/rili'
 import Wangpan from '../components/wangpan/wangpan'
 import Tongxunlu from '../components/tongxunlu/tongxunlu'
+
+import xm from './xm'
 import wp from './wp'
-
-
-
-
+import txl from './txl'
 import Xx from './xx'
 
 export default new Router({
@@ -39,10 +37,12 @@ export default new Router({
             component: Wangpan,
             name: '网盘',
             children:wp.wp
-        },{
+        },
+        {
           path: '/tongxunlu',
           name:'通讯录',
           component: Tongxunlu,
+          children:txl.txl
       },
       {
         //如果用户随便输入地址,转到首页

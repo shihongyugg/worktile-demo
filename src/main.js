@@ -23,7 +23,7 @@ Vue.use(VCalendar,{
     firstDayOfWeek:1,
 })
 // --------------------------------------------------
-import './assets/iconfont/iconfont.css'
+
 // ----------------------------------------------------
 
 
