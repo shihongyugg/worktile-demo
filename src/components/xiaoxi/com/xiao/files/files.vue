@@ -65,10 +65,10 @@
 <style lang='scss' scoped>
   
 .unread_cont{
+    width:calc(100% - 340px);
     position: absolute;
     left: 315px;
     top: 78px;
-    width: 75%;
     height: 82%;
     overflow: auto;
     margin-left: 10px;

@@ -13,7 +13,7 @@
                    <i class="iconfont unread_i" @click="show1 = !show1">&#xe629;</i>
 
                 </div>
-                <transition name="fade">
+                <transition name="el-fade-in">
                      <div class="slide-show" v-if="show1">
                         <div class="slide-header">
                             <h3  class="ng-binding ">成员</h3>
@@ -28,7 +28,7 @@
                             <div class="account-info-meta">
                                 <span class="display_name ">小特机器人</span>
                                 <lc-state state="vm.member.state"></lc-state>
-                              <span class="member-meta" >机器人</span><!-- end ngIf: (vm.member | isBot) -->
+                              <span class="member-meta" >机器人</span>
                                 <br>
                                 <span class="name">@xiaote</span>
                             </div>
@@ -93,26 +93,7 @@ data () {
 </script>
 
 <style lang='scss' scoped>
-.lcfont {
-    font-family: lcfont!important;
-}
-@font-face {
-  font-family: 'iconfont';  /* project id 442030 */
-  src: url('//at.alicdn.com/t/font_442030_ethtxpuhbar.eot');
-  src: url('//at.alicdn.com/t/font_442030_ethtxpuhbar.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_442030_ethtxpuhbar.woff') format('woff'),
-  url('//at.alicdn.com/t/font_442030_ethtxpuhbar.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_442030_ethtxpuhbar.svg#iconfont') format('svg');
-}
-.iconfont{
-  font-family:"iconfont" !important;
-  font-size:16px;font-style:normal;
-  -webkit-font-smoothing: antialiased;
-  -webkit-text-stroke-width: 0.2px;
-  -moz-osx-font-smoothing: grayscale;
-  color: #aaa;
-  font-size: 26px;
-}
+
 .unread_i{
     position: absolute;
    right: 57px;
@@ -125,10 +106,11 @@ data () {
         color:#22d7bb;
      }
     .unread{
-         width: 1056px;
+         width:calc(100% - 310px);
         height: 100%;
-        position: absolute;
-        right: 0;
+        float: left;
+        position: relative;
+        left: 236px;
     }
     .unread_header{
         height: 86px;

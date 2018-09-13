@@ -30,9 +30,7 @@
                 </div>
                 
             </div>
-           <!-- <div class="unread_cont">
-               <i class="iconfont .icon-dvt-message"></i>
-           </div> -->
+          
         </div>
          <router-view></router-view>
     </div>
@@ -65,13 +63,15 @@ data () {
 <style lang='scss' scoped>
 
     .unread{
-         width: 1056px;
+       width:calc(100% - 310px);
         height: 100%;
-        position: absolute;
-        right: 0;
+        float: left;
+        position: relative;
+        left: 236px;
     }
     .unread_header{
         height: 86px;
+
         background: rgba(253,253,253,.95);
     }
     .unread_header_l{
@@ -83,14 +83,14 @@ data () {
     }
     .unread_header_l img{
         position: absolute;
-         top: 10px;
+        top: 10px;
     }
     .unread_header_l a{
        padding-left: 32px;
         color: #000;
     }
  .secondary-text {
-     width: 600px;
+    width: 600px;
     float: left;
     overflow: hidden;
     white-space: nowrap;
@@ -99,7 +99,7 @@ data () {
     line-height: 50px;
     padding: 0 10px;
     color: #aaa;
-  height: 50px;
+    height: 50px;
 }
 .unread_header_r{
     width: 206px;
@@ -110,8 +110,8 @@ data () {
     right: 0;
 }
 .unread_header_r a{
-        color: #22d7bb;
-        font-size: 14px;
+    color: #22d7bb;
+    font-size: 14px;
 }
 .nav-pills{
     margin-bottom: 20px;
@@ -122,7 +122,7 @@ data () {
     width: 102px;
     height: 37px;
     float: left;
-   text-align: center;
+    text-align: center;
 }
 .nav-pills>li>a{
      background-color: #fff;
@@ -130,7 +130,7 @@ data () {
 .nav-pills li:hover{
     border-bottom: solid 2px #22d7bb;
     text-align: center;
-     background: 0 0;
+    background: 0 0;
     color: #22d7bb;
 }
 .nav-pills a{
@@ -138,11 +138,11 @@ data () {
     font-size: 14px;
 }
 .unread_cont{
-    width: 75%;
+    width:calc(100% - 310px);
     height: 80%;
     overflow: auto;
     position: absolute;
-   margin-top: 20px;
+    margin-top: 20px;
     left: 20px;
     right: 10px;
     background-color: #fff;

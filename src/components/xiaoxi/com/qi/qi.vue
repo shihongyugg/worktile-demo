@@ -26,7 +26,7 @@
                    <i class="iconfont unread_i" @click="show1 = !show1">&#xe629;</i>
 
                 </div>
-                <transition name="fade">
+                <!-- <transition name="el-fade-in">
                      <div class="slide-show" v-if="show1">
                         <div class="slide-header">
                             <h3  class="ng-binding ">成员</h3>
@@ -41,7 +41,7 @@
                             <div class="account-info-meta">
                                 <span class="display_name ">小特机器人</span>
                                 <lc-state state="vm.member.state"></lc-state>
-                              <span class="member-meta" >机器人</span><!-- end ngIf: (vm.member | isBot) -->
+                              <span class="member-meta" >机器人</span>
                                 <br>
                                 <span class="name">@xiaote</span>
                             </div>
@@ -53,7 +53,7 @@
                             </dl>
                         </div>
                      </div>
-                </transition>
+                </transition> -->
 
                 <div class="h_m">
                     <ul class="nav-pills">
@@ -65,13 +65,7 @@
                 </div>
                
             </div>
-           <!-- <div class="unread_cont"> -->
-                <!-- <div class="channel-meta ">
-                    <span class="ng-scope">这里是你和机器人</span>
-                    <a href="javascript:;">小特机器人</a>
-                    <span class="ng-scope">的私聊，在当前对话中发送的消息只有你自己可以访问，其他成员无法看到。</span>
-                </div> -->
-           <!-- </div> -->
+         
         </div>
          <router-view></router-view>
     </div>
@@ -107,10 +101,11 @@ data () {
         color:#22d7bb;
      }
     .unread{
-         width: 1056px;
+        width:calc(100% - 310px);
         height: 100%;
-        position: absolute;
-        right: 0;
+        float: left;
+        position: relative;
+        left: 236px;
     }
     .unread_header{
         height: 86px;
@@ -125,9 +120,9 @@ data () {
     }
     .unread_header_l img{
         position: absolute;
-         top: 12px;
-         left: 0px;
-         width: 24px;
+        top: 12px;
+        left: 0px;
+        width: 24px;
         height: 24px;
         line-height: 24px;
         font-size: 12px;
@@ -135,10 +130,10 @@ data () {
     }
     .unread_header_l a{
        padding-left: 32px;
-        color: #000;
+      color: #000;
     }
  .secondary-text {
-     width: 800px;
+    width: 800px;
     float: left;
     overflow: hidden;
     white-space: nowrap;
@@ -147,7 +142,7 @@ data () {
     line-height: 50px;
     padding: 0 10px;
     color: #aaa;
-   height: 50px;
+     height: 50px;
 }
 .unread_header_r{
     width: 206px;
@@ -158,8 +153,8 @@ data () {
     right: 0;
 }
 .unread_header_r a{
-        color: #22d7bb;
-        font-size: 14px;
+    color: #22d7bb;
+    font-size: 14px;
 }
 .nav-pills{
     margin-bottom: 20px;
@@ -170,7 +165,7 @@ data () {
     width: 102px;
     height: 37px;
     float: left;
-   text-align: center;
+    text-align: center;
 }
 .nav-pills>li>a{
      background-color: #fff;
@@ -178,7 +173,7 @@ data () {
 .nav-pills li:hover{
     border-bottom: solid 2px #22d7bb;
     text-align: center;
-     background: 0 0;
+    background: 0 0;
     color: #22d7bb;
 }
 
@@ -286,12 +281,12 @@ data () {
 }
 .unread_i{
     position: absolute;
-   right: 57px;
+    right: 57px;
     top: 17px;
     font-size: 24px;
     color: #ddd;
 }
 .unread_i:hover{
-     color:#22d7bb;
+    color:#22d7bb;
 }
 </style>

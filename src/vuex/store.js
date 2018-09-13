@@ -1,23 +1,43 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+
+
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state:{
-        things:[]
+        things:[],
+        xiaoxi:[]
     },
     mutations:{
-        GETALL(state, payload) {
-            // console.log(payload);
-            state.things = payload;
-        },
-        ADD(state, payload) {
+            GETALL(state, payload) {
+                // console.log(payload);
+                state.things = payload;
+            },
+       
+           ADD(state, payload) {
             console.log(payload,'payload');
             state.things.push(payload);
           },
           DEL(state, payload) {
             state.things = state.things.filter(item => {
+              return item.id != payload.id;
+            })
+          },
+
+
+
+          ryGETALL(state, payload) {
+            // console.log(payload);
+            state.xiaoxi = payload;
+            },
+            add(state, payload) {
+                console.log(payload,'payload');
+                state.xiaoxi.push(payload);
+            },
+            ryDEL(state, payload) {
+            state.xiaoxi = state.xiaoxi.filter(item => {
               return item.id != payload.id;
             })
           },
@@ -29,6 +49,15 @@ const store = new Vuex.Store({
             // console.log(data, '132222222');
             context.commit('GETALL', data);
         },
+
+
+        async ryGETALL(context, payload) {
+            //q请求数据
+            var data = await fetch('/xiaoxi/').then(res => res.json());
+            // console.log(data, '132222222');
+            context.commit('ryGETALL', data);
+        },
+        
         async ADD({commit}, payload) {
             console.log(payload,'payload');
             // 上传数据
@@ -42,6 +71,22 @@ const store = new Vuex.Store({
             console.log(data,'data');
             commit('ADD', data);
         },
+
+
+        async add({commit}, payload) {
+            console.log(payload,'payload');
+            // 上传数据
+            var data = await fetch('/xiaoxi/', {
+              "method": "POST",
+              "headers": {
+                "Content-Type": "application/json"
+              },
+              "body": JSON.stringify(payload)
+            }).then(res => res.json());
+            console.log(data,'data');
+            commit('add', data);
+        },
+
         async DEL({commit}, payload) {
             //发送 delete请求 发送到json-server服务器,自动删除这条数据
             console.log(payload);
@@ -51,7 +96,16 @@ const store = new Vuex.Store({
       
             commit("DEL", payload)
           },
-         
+
+          async ryDEL({commit}, payload) {
+            //发送 delete请求 发送到json-server服务器,自动删除这条数据
+            console.log(payload);
+            var data = await fetch('/xiaoxi/' + payload.id, {
+              "method": "DELETE"
+            }).then(res => res.json());
+      
+            commit("ryDEL", payload)
+          },
     },
     getters:{
         quanbu(state){

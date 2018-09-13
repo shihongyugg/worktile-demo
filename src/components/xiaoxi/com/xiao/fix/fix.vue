@@ -22,7 +22,7 @@ export default {
     position: absolute;
     left: 315px;
     top: 78px;
-    width: 75%;
+    width:calc(100% - 340px);
     height: 82%;
     overflow: auto;
     margin-left: 10px;

@@ -16,8 +16,8 @@ export default {
 <style lang='scss' scoped>
   
     .unread_cont{
-       width: 75%;
-    height: 80%;
+      width:calc(100% - 340px);
+         height: 80%;
     overflow: auto;
     position: absolute;
     /* margin-top: 20px; */

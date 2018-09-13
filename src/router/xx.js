@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 Vue.use(Router)
  
+
 import I from '../components/xiaoxi/com/index/index.vue'
 import Xiao from '../components/xiaoxi/com/xiao/xiao.vue'
 
 import Qi from '../components/xiaoxi/com/qi/qi.vue'
-import Qwerty from '../components/xiaoxi/com/qwerty/qwerty.vue'
+
 import R from '../components/xiaoxi/com/r/r.vue'
 
 import Weidu from '../components/xiaoxi/com/index/weidu/weidu.vue'
@@ -27,7 +29,7 @@ import Fixr from '../components/xiaoxi/com/r/dai/dai.vue'
 export default ({
     xx:[
         {
-            path:'/xiaoxi/index',
+            path:'/xiaoxi/index/',
             component:I,
             name:'项目助手',
             children:[
@@ -48,7 +50,7 @@ export default ({
                       },
                       {
                         //如果用户随便输入地址,转到首页
-                            path: '/xiaoxi/index/',
+                            path: '/xiaoxi/index',
                             redirect: '/xiaoxi/index/weidu'
                         }
             ]
@@ -107,11 +109,7 @@ export default ({
                 }
      ]
           },
-          {
-            path:'/xiaoxi/qwerty',
-            component:Qwerty,
-            name:'qwerty', 
-          },
+         
           {
             path:'/xiaoxi/r',
             component:R,
@@ -137,17 +135,18 @@ export default ({
                     path: '/xiaoxi/r/',
                     redirect: '/xiaoxi/r/weidu'
                 }
-     ]
+            ]
           },
          
           {
             //如果用户随便输入地址,转到首页
-                path: '/xiaoxi/index/',
-                redirect: '/xiaoxi/index/yidu'
+                path: '/xiaoxi/',
+                redirect: '/xiaoxi/index/'
             }
         
-    ],
+    ]
     
 })
+
 
 

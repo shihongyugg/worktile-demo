@@ -10,44 +10,44 @@
 
                     <i class="iconfont m_i" @click="show1 = !show1">&#xe64e;</i>
                    <!-- 设置休眠时间 -->
-                    <transition name="fade">
+                    <!-- <transition name="el-fade-in">
                           <div class="pop-menu" v-if="show1">
                             <span class="setting-title">设置休眠时间</span>
                             <ul>
                                 <li><a href="javascript:;">10分钟</a></li>
-                                <li><a href="javascript:;">10分钟</a></li>
-                                <li><a href="javascript:;">10分钟</a></li>
-                                <li><a href="javascript:;">10分钟</a></li>
-                                <li><a href="javascript:;">10分钟</a></li>
-                                <li><a href="javascript:;">10分钟</a></li>
-                                <li><a href="javascript:;">10分钟</a></li>
+                                <li><a href="javascript:;">20分钟</a></li>
+                                <li><a href="javascript:;">1小时</a></li>
+                                <li><a href="javascript:;">2小时</a></li>
+                                <li><a href="javascript:;">4小时</a></li>
+                                <li><a href="javascript:;">8小时</a></li>
+                                <li><a href="javascript:;">24小时</a></li>
                                 
                             </ul>
                           </div>
-                    </transition>
+                    </transition> -->
                   
                  </div>
                  <div class="m_left_header_i">
                          <i class="iconfont h_font" @click="show2 = !show2">&#xe63e;</i>
                  </div>
-                  <transition name="fade">
+                  <!-- <transition name="el-fade-in">
                           <div class="dropdown-menu" v-if="show2">
                             <ul>
                                 <li>
                                     <a href="javascript:;">创建群组</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">创建群组</a>
+                                    <a href="javascript:;">加入群组</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">创建群组</a>
+                                    <a href="javascript:;">发起私聊</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">创建群组</a>
+                                    <a href="javascript:;">添加成员</a>
                                 </li>
                             </ul>
                         </div>
-                    </transition>
+                    </transition> -->
                 
                  <div class="m_left_list">
                     <div class="search-area">
@@ -101,21 +101,12 @@ export default {
             title:'企业公告',
             url:'/xiaoxi/qi'
           },
-        //   {
-        //       pic:"https://s3.cn-north-1.amazonaws.com.cn/lcavatar/mission_24x24.png",
-        //     title:'QWERTY',
-        //     url:'/xiaoxi/qwerty'
-        //   },
+       
           {
               pic:"https://s3.cn-north-1.amazonaws.com.cn/lcavatar/calendar_24x24.png",
             title:'日程助手',
             url:'/xiaoxi/r'
           },
-        // {
-        // //如果用户随便输入地址,转到首页
-        // path: '*',
-        // redirect: '/xiaoxi/index'
-        // }
 
       
         ]
@@ -141,13 +132,11 @@ export default {
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.fade-enter, .fade-leave-to  {
   opacity: 0;
 }
 .pop-menu {
-    // display: none;
     padding: 5px 0;
-    /* min-width: 240px; */
     position: absolute;
     bottom: 267px;
     left: 50px;
@@ -155,10 +144,6 @@ export default {
     background: #fff;
 }
 
-// 
-// .m_left_header:hover .pop-menu{
-//     display: block;
-// }
 .setting-title {
     color: #888;
     display: inline-block;
@@ -179,7 +164,6 @@ export default {
     position: absolute;
     z-index: 1000;
     padding: 5px 0;
-    // display: none;
     margin-left: 213px;
     background-color: #fff;
 }
@@ -239,6 +223,7 @@ export default {
         height:100%;
         background-color: #fff;
         float: left;
+        position: fixed;
     }
     .m_left_header{
         height: 50px;
@@ -278,7 +263,6 @@ export default {
         padding: 14px 0 11px 30px;
         font-size: 14px;
         cursor: pointer;
-         margin-left: -17px;
     }
   .m_left_list ul li:hover{
         background: #e7f9f6;
@@ -292,7 +276,7 @@ export default {
         color: #666;
     }
      .m_left_list ul li a:hover{
-       box-shadow: 0 0 8px 2px #eee;
+        box-shadow: 0 0 8px 2px #eee;
         text-decoration: none;
      }
     .m_left_list ul li img{
