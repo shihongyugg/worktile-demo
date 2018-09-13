@@ -3,20 +3,27 @@
         <div class="unread">
             <div class="unread_header">
                 <div class="unread_header_l">
-                   <img src="https://s3.cn-north-1.amazonaws.com.cn/lcavatar/381df779-62e6-49de-8792-620b94a5582d_40x40.png" alt="">
-                      <a href="">日程助手</a>    
+                    <img src="https://s3.cn-north-1.amazonaws.com.cn/lcavatar/calendar_24x24.png" alt="">
+                    <a href="javascript:;">
+                    日程助手<i class="fa fa-angle-down"></i> </a>
                 </div>
                 <div class="secondary-text"></div>
                 <div class="unread_header_r">
                     <a href="">全部标记为已读</a>
                 </div>
-            </div>
-            <!-- <ul>
-                   <li v-for="item of tabNav" :class="{cur:item.title == $route.name}" >
-              <router-link :to="item.url">{{item.title}}</router-link>
-            </li>
+                <div class="h_m">
+                    <ul class="nav-pills">
+                        <li v-for="item of tabNav" :class="{cur:item.title == $route.name}" >
+                            <router-link :to="item.url">{{item.title}}</router-link>
+                        </li>
 
-            </ul> -->
+                    </ul>
+                </div>
+                
+            </div>
+           <!-- <div class="unread_cont">
+               <i class="iconfont .icon-dvt-message"></i>
+           </div> -->
         </div>
          <router-view></router-view>
     </div>
@@ -26,46 +33,55 @@
 export default {
 data () {
     return {
-        // tabNav:[
-        //   {
-        //     title:"首页",
-        //     url:'/xiaoxi/index/weidu'
-        //   },
+        tabNav:[
+          {
+            title:"未读",
+            url:'/xiaoxi/r/weidu'
+          },
+          {
+            title:"已读",
+            url:'/xiaoxi/r/yidu'
+          },
+          {
+            title:"待处理",
+            url:'/xiaoxi/r/dai'
+          },
           
-          
-        // ]
+        ]
     }
   }
 }
 </script>
 
 <style lang='scss' scoped>
+
     .unread{
          width: 1056px;
         height: 100%;
         position: absolute;
         right: 0;
-        background-color: #ddd;
     }
     .unread_header{
         height: 86px;
         background: rgba(253,253,253,.95);
     }
     .unread_header_l{
-        width: 150px;
+        width: 109px;
         height: 50px;
         line-height: 50px;
         padding-left: 12px;
-        padding-top: 10px;
         float: left;
     }
-    
+    .unread_header_l img{
+        position: absolute;
+         top: 10px;
+    }
     .unread_header_l a{
-        padding-top: 9px;
+       padding-left: 32px;
         color: #000;
     }
  .secondary-text {
-     width: 706px;
+     width: 600px;
     float: left;
     overflow: hidden;
     white-space: nowrap;
@@ -74,7 +90,7 @@ data () {
     line-height: 50px;
     padding: 0 10px;
     color: #aaa;
-    border: 1px solid #000;
+  height: 50px;
 }
 .unread_header_r{
     width: 206px;
@@ -88,4 +104,40 @@ data () {
         color: #22d7bb;
         font-size: 14px;
 }
+.nav-pills{
+    margin-bottom: 20px;
+    padding: 0 20px;
+    border-bottom: 1px solid #eee;
+}
+.nav-pills>li {
+    width: 102px;
+    height: 37px;
+    float: left;
+   text-align: center;
+}
+.nav-pills>li>a{
+     background-color: #fff;
+}
+.nav-pills li:hover{
+    border-bottom: solid 2px #22d7bb;
+    text-align: center;
+     background: 0 0;
+    color: #22d7bb;
+}
+.nav-pills a{
+    color: #000;
+    font-size: 14px;
+}
+.unread_cont{
+    width: 75%;
+    height: 80%;
+    overflow: auto;
+    position: absolute;
+   margin-top: 20px;
+    left: 20px;
+    right: 10px;
+    background-color: #fff;
+}
+
+
 </style>

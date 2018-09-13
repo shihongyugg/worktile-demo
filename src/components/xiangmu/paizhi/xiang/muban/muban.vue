@@ -35,7 +35,7 @@
                             <tr v-for="(v,index) of mu">
                                 <td>
                                     <div class="shi">
-                                        <i :class="{'iconfont icon-renwu':v.sp == '项目处理','iconfont icon-quexianguanli':v.sp == '缺陷管理'}"></i>
+                                        <i :class="{'iconfont icon-renwu':v.sp == '项目处理','iconfont icon-quexianguanli':v.sp == '缺陷管理','iconfont icon-guanli':v.sp =='测试管理'}"></i>
                                         <span>{{v.sp}}</span>
                                     </div>
                                 </td>
@@ -43,19 +43,23 @@
                                     <span class="beizhu">{{v.content}}</span>
                                 </td>
                                 <td>{{v.nex}}</td>
-                                <td class="con"><span class="status">{{v.state}}</span></td>
+                                <td class="con">
+                                    <span :class="{'status':v.state == '已启用' ,'wan':v.state == '未完成'}" >{{v.state}}</span>
+                                </td>
                                 <td class="con extend">
                                     <a href="javascript:"><i class="wtf iconfont icon-shezhi"></i>配置</a>
                                     <a href="javascript:"><i class="iconfont icon-fuzhi"></i></a>
                                     <a href="javascript:"><i class="iconfont icon-bianji"></i></a>
-                                    <a href="javascript:" @click="delet($index)"><i class="iconfont icon-huishouzhan"></i></a>
+                                    <!-- <a href="javascript:" @click="delet($index)"><i class="iconfont icon-huishouzhan"></i></a> -->
+                                    <template>
+                                        <el-button type="text" @click="open2($index)"><i class="iconfont icon-huishouzhan"></i></el-button>
+                                    </template>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-            
         </div>
     </div>
 </template>
@@ -67,37 +71,63 @@ export default {
             ind:["项目模板","备注","类型","状态","操作"],
             mu:[
                 {
-                    id:'1',
                     sp:'项目处理',
                     content:'适用于最简单的事务管理事',
                     nex:'通用',
                     state:'已启用'
                 },
                 {
-                    id:'2',
                     sp:'缺陷管理',
                     content:'适用于缺陷管理',
                     nex:'通用',
+                    state:'未完成'
+                },
+                {
+                    sp:'测试管理',
+                    content:'适用于测试用例管理',
+                    nex:'软件',
                     state:'未完成'
                 }
             ]
         }
     },
     methods:{
-        delet(index){
-            this.mu.splice(index,1);
+        open2(index) {
+            this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+                }).then(() => {
+                    this.mu.splice(index,1);
+                this.$message({
+                    type: 'success',
+                    message: '删除成功!'
+                });
+                }).catch(() => {
+                this.$message({
+                    type: 'info',
+                    message: '已取消删除'
+                });          
+            });
         }
     }
+    
 }
 </script>
 
 <style style="scss" scoped>
+    .el-button--text{
+        color:#888;
+    }
     .icon-renwu{
         color:#99d561
     }
     .icon-quexianguanli{
         color:#f85b59;
         font-size: 20px;
+    }
+    .icon-guanli{
+        color:cyan;
     }
     .Muban{
         margin: 15px;
@@ -221,6 +251,13 @@ export default {
         border-radius: 3px;
         color: #fff;
         background: #22d7bb;
+    }
+    .wan{
+        padding: 5px 10px;
+        font-size: 12px;
+        border-radius: 3px;
+        color: #fff;
+        background: #ffc442; 
     }
     .extend a{
         color: #aaa;
