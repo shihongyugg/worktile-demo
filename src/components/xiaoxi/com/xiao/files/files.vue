@@ -1,12 +1,7 @@
 <template>
     <div>
         <div class="unread_cont">
-            <div class="header-filter-area">
-                <button class="btn-sm">
-                    <i ></i> 上传文件
-                </button>
-             </div>
-                <table  class="table lc-table">
+             <table  class="table lc-table">
                     <thead>
                     <tr>
                         <th nowrap="nowrap" translate="drive.TH_NAME" class="ng-scope">文件名</th>
@@ -20,6 +15,23 @@
                    
                     </tbody>
                 </table>
+            <el-upload
+            class="upload-demo"
+            action="https://jsonplaceholder.typicode.com/posts/"
+            :on-preview="handlePreview"
+            :on-remove="handleRemove"
+            :before-remove="beforeRemove"
+            multiple
+            :limit="3"
+            :on-exceed="handleExceed"
+            :file-list="fileList">
+          
+            <div class="header-filter-area">
+                 <el-button size="small" type="primary" class="btn-sm">点击上传</el-button>
+             </div>
+               
+            </el-upload>
+           
         </div>
                
                 <router-view></router-view>
@@ -27,9 +39,27 @@
 </template>
 
 <script>
-export default {
-
-}
+ export default {
+    data() {
+      return {
+        fileList: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}]
+      };
+    },
+    methods: {
+      handleRemove(file, fileList) {
+        console.log(file, fileList);
+      },
+      handlePreview(file) {
+        console.log(file);
+      },
+      handleExceed(files, fileList) {
+        this.$message.warning(`当前限制选择 3 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
+      },
+      beforeRemove(file, fileList) {
+        return this.$confirm(`确定移除 ${ file.name }？`);
+      }
+    }
+  }
 </script>
 
 <style lang='scss' scoped>
@@ -75,6 +105,9 @@ export default {
     margin-right: 20px;
 }
 .btn-sm {
+    position: absolute;
+    top: 10px;
+    right: 0;
     padding: .157rem 20px;
     border-radius: 1rem;
     margin-top: 10px;
