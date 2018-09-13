@@ -51,7 +51,7 @@ export default {
     .X_wrap{
         margin: 15px;
         width: calc(100% - 30px);
-        height: 561px;
+        height:calc(100% - 30px);
         background: #fff;
         position: relative;
     }
