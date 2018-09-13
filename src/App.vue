@@ -95,7 +95,7 @@ a {
   // display: flex
   li {
     a {
-      height: 70px;
+      // height: 70px;
       text-align: center;
       display: block;
       color: #fff;

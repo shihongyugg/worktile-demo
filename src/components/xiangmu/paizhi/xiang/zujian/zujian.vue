@@ -31,15 +31,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr v-for="(v,index) of mu">
                                 <td>
                                     <div class="shi">
-                                        <i></i>
-                                        <span>看板</span>
+                                        <i :class="{'iconfont icon-dashboard':v.sp == '看板','iconfont icon-diedaijianying':v.sp == '迭代'}"></i>
+                                        <span>{{v.sp}}</span>
                                     </div>
                                 </td>
                                 <td>
-                                    <span class="beizhu">用看板的方式分组展示任务</span>
+                                    <span class="beizhu">{{v.content}}</span>
                                 </td>
                                 <td class="con">
                                     <i class="iconfont icon-diannao"></i>
@@ -62,7 +62,21 @@
 
 <script>
 export default {
-
+    data(){
+        return{
+            ind:["组件名称","备注","支持平台","操作"],
+            mu:[
+                {
+                    sp:'看板',
+                    content:'用看板的方式分组展示任务'
+                },
+                {
+                    sp:'迭代',
+                    content:'用于敏捷开发管理中的迭代管理，支持迭代统计、故事板及规划'
+                }
+            ]
+        }
+    }
 }
 </script>
 
@@ -71,10 +85,20 @@ export default {
         font-size: 18px;
         color:#aaa;
     }
+    .icon-dashboard{
+        color:#18bfa4;
+        font-size: 14px;
+        margin: 3px;
+        vertical-align: middle;
+    }
+    .icon-diedaijianying{
+        color:#9473fd;
+        font-size: 20px;
+    }
     .Muban{
         margin: 15px;
         width: calc(100% - 30px);
-        height: 523px;
+        height: calc(100% - 120px);
         background: #fff;
         position: relative;
     }
@@ -161,12 +185,10 @@ export default {
         padding-left: 28px;
     }
     .shi i{
-        width: 20px;
-        height: 20px;
         background-color: #fff;
         position: absolute;
-        top: 0;
-        left: 0;
+        top: 0px;
+        left: 5px;
     }
     .beizhu{
         color: #888;

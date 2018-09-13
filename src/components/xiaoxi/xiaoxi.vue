@@ -1,5 +1,5 @@
 <template>
-<div>
+<div id="app">
     <div class="message_main">  
         <div class="m_main_pic"> 
              <div class="m_main_left">
@@ -8,7 +8,47 @@
                          消息
                      </span>
 
+                    <i class="iconfont m_i" @click="show1 = !show1">&#xe64e;</i>
+                   <!-- 设置休眠时间 -->
+                    <transition name="fade">
+                          <div class="pop-menu" v-if="show1">
+                            <span class="setting-title">设置休眠时间</span>
+                            <ul>
+                                <li><a href="javascript:;">10分钟</a></li>
+                                <li><a href="javascript:;">10分钟</a></li>
+                                <li><a href="javascript:;">10分钟</a></li>
+                                <li><a href="javascript:;">10分钟</a></li>
+                                <li><a href="javascript:;">10分钟</a></li>
+                                <li><a href="javascript:;">10分钟</a></li>
+                                <li><a href="javascript:;">10分钟</a></li>
+                                
+                            </ul>
+                          </div>
+                    </transition>
+                  
                  </div>
+                 <div class="m_left_header_i">
+                         <i class="iconfont h_font" @click="show2 = !show2">&#xe63e;</i>
+                 </div>
+                  <transition name="fade">
+                          <div class="dropdown-menu" v-if="show2">
+                            <ul>
+                                <li>
+                                    <a href="javascript:;">创建群组</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">创建群组</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">创建群组</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">创建群组</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </transition>
+                
                  <div class="m_left_list">
                     <div class="search-area">
                         <i class="lcfont lc-search"></i>
@@ -18,17 +58,17 @@
                            <li v-for="item of tabNav" :class="{cur:item.title == $route.name}" >
                                 <router-link :to="item.url">
                                     <div>
-                                        <img :src="item.pic" alt="">
+                                        <img :src="item.pic" alt="" >
                                     </div>
                                     <div class="m_name">{{item.title}}</div>
                                 </router-link>
+                                  <i class="iconfont i_font">&#xe617;</i>
+                                  
                             </li>
                         </ul>
                    
                  </div>
-                 <!-- <div class="m_left_right">
-
-                 </div> -->
+                 
              </div>
         </div>
     </div>
@@ -38,13 +78,17 @@
 </template>
 
 <script>
+import '../../assets/font/iconfont.css'
 export default {
     data () {
     return {
+         show1:false,
+         show2:false,
+         
         tabNav:[
         {
             pic:"https://s3.cn-north-1.amazonaws.com.cn/lcavatar/mission_24x24.png",
-            title:"网盘助手",
+            title:"项目助手",
             url:'/xiaoxi/index/'
           },
           {
@@ -53,25 +97,25 @@ export default {
             url:'/xiaoxi/xiao'
           },
           {
-              pic:"https://s3.cn-north-1.amazonaws.com.cn/lcavatar/mission_24x24.png",
+              pic:"https://s3.cn-north-1.amazonaws.com.cn/lcavatar/calendar_24x24.png",
             title:'企业公告',
             url:'/xiaoxi/qi'
           },
-          {
-              pic:"https://s3.cn-north-1.amazonaws.com.cn/lcavatar/mission_24x24.png",
-            title:'QWERTY',
-            url:'/xiaoxi/qwerty'
-          },
+        //   {
+        //       pic:"https://s3.cn-north-1.amazonaws.com.cn/lcavatar/mission_24x24.png",
+        //     title:'QWERTY',
+        //     url:'/xiaoxi/qwerty'
+        //   },
           {
               pic:"https://s3.cn-north-1.amazonaws.com.cn/lcavatar/calendar_24x24.png",
             title:'日程助手',
             url:'/xiaoxi/r'
           },
-        {
-        //如果用户随便输入地址,转到首页
-        path: '*',
-        redirect: '/xiaoxi/index'
-        }
+        // {
+        // //如果用户随便输入地址,转到首页
+        // path: '*',
+        // redirect: '/xiaoxi/index'
+        // }
 
       
         ]
@@ -82,7 +126,101 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+.m_i{
+      color: #ddd;
+    font-size: 20px;
+    padding-top: 18px;
+    position: absolute;
+}
+.h_font{
+    color: #ddd;
+    font-size: 24px;
+    padding-top: 20px;
+}
+//设置休眠时间
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+.pop-menu {
+    // display: none;
+    padding: 5px 0;
+    /* min-width: 240px; */
+    position: absolute;
+    bottom: 267px;
+    left: 50px;
+    z-index: 1;
+    background: #fff;
+}
 
+// 
+// .m_left_header:hover .pop-menu{
+//     display: block;
+// }
+.setting-title {
+    color: #888;
+    display: inline-block;
+    margin: 16px 0 8px 20px;
+}
+.pop-menu a {
+    padding: 4px 24px;
+      display: block;
+    line-height: 30px;
+    color: #666;
+    text-decoration: none;
+
+}
+
+.dropdown-menu {
+   margin-top: -2px;
+    min-width: 240px;
+    position: absolute;
+    z-index: 1000;
+    padding: 5px 0;
+    // display: none;
+    margin-left: 213px;
+    background-color: #fff;
+}
+.dropdown-menu li {
+    padding-top: 12px;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+    display: block;
+    -webkit-transition: background .2s;
+    transition: background .2s;
+}
+
+.dropdown-menu li a {
+    font-weight: 400;
+    color: #666;
+    padding: 12px 18px;
+    -webkit-transition: padding-left .2s;
+    display: block;
+    padding: 3px 20px;
+    line-height: 1.42857143;
+}
+
+
+.i_font{
+   font-size: 12px;
+    position: absolute;
+    margin-top: -16px;
+    margin-left: 185px;
+    color: #aaa;
+    display: none;
+}
+ .m_left_list ul li:hover .i_font{
+    display: block;
+ }
+ .h_font{
+     font-size: 16px;
+     float: right;
+     margin-right: 20px;
+    margin-top: -50px;
+ }
     .message_main{
         overflow: hidden;
         width: 1296px;
@@ -124,6 +262,7 @@ export default {
         height: 36px;
         font-size: 14px;
         padding-left: 28px;
+        outline: none;
         border-radius: 20px;
         border: 1px solid transparent;
     }
@@ -142,27 +281,30 @@ export default {
          margin-left: -17px;
     }
   .m_left_list ul li:hover{
-           background: #e7f9f6;
+        background: #e7f9f6;
         color: #22d7bb;
         border-right: 4px solid #22d7bb;
         box-shadow: 0 0 8px 2px #eee;
+        background: 0 0;
     }
-  .m_left_list ul li a{
-         
+  .m_left_list ul li a{ 
+        box-shadow: 0 0 8px 2px #eee;
         color: #666;
-      
     }
+     .m_left_list ul li a:hover{
+       box-shadow: 0 0 8px 2px #eee;
+        text-decoration: none;
+     }
     .m_left_list ul li img{
         width: 24px;
         height: 24px;
-        line-height: 24px;
-        font-size: 12px;
-        border-radius: 24px;
-        padding-left: 10px;
+        border-radius: 50px;
+        // padding-left: 10px;
+        margin-left: 10px;
     }
     .m_name{
         padding-left: 47px;
         margin-top: -27px;
     }
-  
+
     </style>

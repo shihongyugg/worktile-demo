@@ -4,11 +4,11 @@
         <div class="moudle">
             <div class="M_sour">
                 <i class="icon iconfont icon-search"></i>
-                <input type="text" placeholder="搜索项目组件">
+                <input type="text" placeholder="搜索项目报表">
                 <div class="area">
                     <button class="ar_ico">
                         <i class="iconfont icon-jiahao"></i>
-                        <span>添加项目组件</span>
+                        <span>添加项目报表</span>
                     </button>
                 </div>
             </div>
@@ -20,21 +20,16 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>项目报表</th>
-                                <th>备注</th>
-                                <th>支持平台</th>
-                                <th>操作</th>
+                                <th v-for="val of ind">{{val}}</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr v-for="(v,index) of mu">
                                 <td>
-                                    <div class="shi">
-                                        <span>项目概要报表</span>
-                                    </div>
+                                    <span>{{v.sp}}</span>
                                 </td>
                                 <td>
-                                    <span class="beizhu">展示项目中的基本统计，类型的分布等</span>
+                                    <span class="beizhu">{{v.content}}</span>
                                 </td>
                                 <td class="con">
                                     <i class="iconfont icon-diannao"></i>
@@ -42,9 +37,9 @@
                                     <i class="iconfont icon-anzhuo"></i>
                                 </td>
                                 <td class="con extend">
-                                    <a href="javascript:">
-                                        <i class="wtf iconfont icon-huishouzhan"></i>
-                                    </a>
+                                    <template>
+                                        <el-button type="text" @click="open2($index)"><i class="iconfont icon-huishouzhan"></i></el-button>
+                                    </template>
                                 </td>
                             </tr>
                         </tbody>
@@ -57,7 +52,45 @@
 
 <script>
 export default {
-
+     data(){
+        return {
+            ind:["项目报表","备注","支持平台","操作"],
+            mu:[
+                {
+                    sp:'项目概要报表',
+                    content:'展示项目中的基本统计，类型的分布等'
+                },
+                {
+                    sp:'缺陷管理',
+                    content:'适用于缺陷管理'
+                },
+                {
+                    sp:'测试管理',
+                    content:'适用于测试用例管理'
+                }
+            ]
+        }
+    },
+    methods:{
+        open2(index) {
+            this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+                }).then(() => {
+                    this.mu.splice(index,1);
+                this.$message({
+                    type: 'success',
+                    message: '删除成功!'
+                });
+                }).catch(() => {
+                this.$message({
+                    type: 'info',
+                    message: '已取消删除'
+                });          
+            });
+        }
+    }
 }
 </script>
 
@@ -69,7 +102,7 @@ export default {
     .Muban{
         margin: 15px;
         width: calc(100% - 30px);
-        height: 523px;
+        height:calc(100% - 120px);
         background: #fff;
         position: relative;
     }
@@ -150,18 +183,6 @@ export default {
     }
     table td{
         font-size: 14px;
-    }
-    .shi{
-        position: relative;
-        padding-left: 28px;
-    }
-    .shi i{
-        width: 20px;
-        height: 20px;
-        background-color: #fff;
-        position: absolute;
-        top: 0;
-        left: 0;
     }
     .beizhu{
         color: #888;

@@ -5,10 +5,20 @@ Vue.use(Router)
 import Xiashu from '../components/xiangmu/xiashu/xiashu'
 import Wode from '../components/xiangmu/wode/wode'
 import Myfz from '../components/xiangmu/wode/myfz/myfz'
-import Myfp from '../components/xiangmu/wode/myfp/myfp'
-import Mycy from '../components/xiangmu/wode/mycy/mycy'
-import Mycj from '../components/xiangmu/wode/mycj/mycj'
+import Huod from '../components/xiangmu/wode/myfz/huodong/huodong'
+import Wanc from '../components/xiangmu/wode/myfz/wancheng/wancheng'
 
+
+
+import Myfp from '../components/xiangmu/wode/myfp/myfp'
+import Huod1 from '../components/xiangmu/wode/myfp/huodong/huodong'
+import Wanc1 from '../components/xiangmu/wode/myfp/wancheng/wancheng'
+import Mycy from '../components/xiangmu/wode/mycy/mycy'
+import Huod2 from '../components/xiangmu/wode/mycy/huodong/huodong'
+import Wanc2 from '../components/xiangmu/wode/mycy/wancheng/wancheng'
+import Mycj from '../components/xiangmu/wode/mycj/mycj'
+import Huod3 from '../components/xiangmu/wode/mycj/huodong/huodong'
+import Wanc3 from '../components/xiangmu/wode/mycj/wancheng/wancheng'
 import Yier from '../components/xiangmu/yier/yier'
 import Peizhi from '../components/xiangmu/paizhi/paizhi'
 import Xm from '../components/xiangmu/paizhi/xiang/xiang'
@@ -52,22 +62,70 @@ export default ({
                 {
                     path:'/xiangmu/wode/myfz/',
                     name:'我负责的',
-                    component:Myfz
+                    component:Myfz,
+                    children:[
+                        {
+                            path:'/xiangmu/wode/myfz/huodong/',
+                            name:'活动任务',
+                            component:Huod
+                        },
+                        {
+                            path:'/xiangmu/wode/myfz/wancheng',
+                            name:'完成任务',
+                            component:Wanc
+                        }
+                    ],redirect:'/xiangmu/wode/myfz/huodong/'
                 },
                 {
                     path:'/xiangmu/wode/myfp',
                     name:'我分配的',
-                    component:Myfp
+                    component:Myfp,
+                    children:[
+                        {
+                            path:'/xiangmu/wode/myfp/huodong/',
+                            name:'活动任务',
+                            component:Huod1
+                        },
+                        {
+                            path:'/xiangmu/wode/myfp/wancheng',
+                            name:'完成任务',
+                            component:Wanc1
+                        }
+                    ],redirect:'/xiangmu/wode/myfp/huodong/'
                 },
                 {
                     path:'/xiangmu/wode/mycy',
                     name:'我参与的',
-                    component:Mycy
+                    component:Mycy,
+                    children:[
+                        {
+                            path:'/xiangmu/wode/mycy/huodong/',
+                            name:'活动任务',
+                            component:Huod2
+                        },
+                        {
+                            path:'/xiangmu/wode/mycy/wancheng',
+                            name:'完成任务',
+                            component:Wanc2
+                        }
+                    ],redirect:'/xiangmu/wode/mycy/huodong/'
                 },
                 {
                     path:'/xiangmu/wode/mycj',
                     name:'我创建的',
-                    component:Mycj
+                    component:Mycj,
+                    children:[
+                        {
+                            path:'/xiangmu/wode/mycj/huodong/',
+                            name:'活动任务',
+                            component:Huod3
+                        },
+                        {
+                            path:'/xiangmu/wode/mycj/wancheng',
+                            name:'完成任务',
+                            component:Wanc3
+                        }
+                    ],redirect:'/xiangmu/wode/mycj/huodong/'
                 },
                 {
                     path: '*',
