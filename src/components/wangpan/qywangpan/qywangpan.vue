@@ -27,7 +27,7 @@
                     <td>更新时间</td>
                 </tr>
                 <tr v-for="(item,index) of list">
-                        <td v-model="addDetail.title" ><router-link :to='item.url'><i class="iconfont icon-wenjianjia i3"></i>{{item.title}}</router-link> </td>
+                        <td v-model="addDetail.title"><router-link :to='item.url'><i class="iconfont icon-wenjianjia i3"></i>{{item.title}}</router-link> </td>
                         <td v-model="addDetail.daxiao" >{{item.daxiao}} </td>
                         <td v-model="addDetail.ren" >
                             <span>M</span>
@@ -92,6 +92,7 @@ export default {
 <style lang='css' scoped>
     .div{
         background-color: #d8d8d8;
+        height: 100%;
     }
     .div1{
         position: relative; 
@@ -172,7 +173,7 @@ export default {
     .div2{
         width: 95%;
         margin: 20px auto;
-        height: 500px;
+        height: 100%;
         background-color: white;
     }
     .div2 table{

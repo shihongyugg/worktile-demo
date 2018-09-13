@@ -1,5 +1,5 @@
 <template>
-    <div> 
+    <div class="dd"> 
         <div class="div1">
             <a href="javascript:;" class="ng-binding"><i class="iconfont icon-huishouzhan-copy"></i> 回收站 </a>    
         </div>  
@@ -26,10 +26,13 @@ export default {
         line-height: 47px;
         color: #aaa;
     }
+    .dd{
+        height:100%;
+    }
     .div2{
         width: 95%;
         margin: 20px auto;
-        height: 500px;
+        height: 100%;
         background-color: white;
     }
     p{

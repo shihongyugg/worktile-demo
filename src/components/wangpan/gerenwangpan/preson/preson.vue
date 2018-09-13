@@ -105,7 +105,7 @@ export default {
     .div2{
         width: 95%;
         margin: 20px auto;
-        height: 500px;
+        height: 100%;
         background-color: white!important;
     }
     p{

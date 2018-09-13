@@ -1,5 +1,5 @@
 <template>
-    <div> 
+    <div class="dd"> 
         <div class="div1">
             <a href="javascript:;" class="ng-binding"><i class="iconfont icon-gongxiang"></i> 与我共享 </a>    
         </div>  
@@ -29,7 +29,7 @@ export default {
     .div2{
         width: 95%;
         margin: 20px auto;
-        height: 500px;
+        height: 100%;
         background-color: white;
     }
     p{
@@ -47,5 +47,8 @@ export default {
         display: block;
         color:  #eee;
         font-size: 5rem;
+    }
+    .dd{
+        height: 100%;
     }
 </style>
