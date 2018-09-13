@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="height:100%">
         <div class="M_tit">
             <span><i class="iconfont icon-shezhi"></i>配置中心</span>
             <div class="M_top">
@@ -53,7 +53,7 @@ export default {
         line-height: 50px;
         color: #333;
         font-size: 15px;
-        padding: 0 15px;
+        padding: 1px 15px;
     }
     .M_tit span{
         float: left;
@@ -82,9 +82,7 @@ export default {
         border-bottom: 2px solid #22d7bb;
     }
     .M_down{
-        background: #fff;
-        height: 38px;
-        padding: 1px;
+        height:100%;
     }
 </style>
 

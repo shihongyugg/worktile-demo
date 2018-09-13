@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="height:100%">
         <div class="M_tit">
             <span><i class="iconfont icon-woderenwu1"></i>我的任务</span>
             <div class="M_top">
@@ -71,9 +71,7 @@ export default {
         border-bottom: 2px solid #22d7bb;
     }
     .M_down{
-        padding: 0 15px;
-        background: #fff;
-        height: 38px;
+        height:100%;
     }
     .icon-woderenwu1{
         vertical-align: middle;

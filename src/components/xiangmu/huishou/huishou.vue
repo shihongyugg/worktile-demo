@@ -54,7 +54,7 @@ export default {
     }
     .yier{
         width: calc(100% - 30px);
-        height: 611px;
+        height:calc(100% - 30px);
         background:#fff;
         margin: 15px; 
     }

@@ -4,11 +4,11 @@
         <div class="moudle">
             <div class="M_sour">
                 <i class="icon iconfont icon-search"></i>
-                <input type="text" placeholder="搜索项目组件">
+                <input type="text" placeholder="搜索项目报表">
                 <div class="area">
                     <button class="ar_ico">
                         <i class="iconfont icon-jiahao"></i>
-                        <span>添加项目组件</span>
+                        <span>添加项目报表</span>
                     </button>
                 </div>
             </div>
@@ -69,7 +69,7 @@ export default {
     .Muban{
         margin: 15px;
         width: calc(100% - 30px);
-        height: 523px;
+        height:calc(100% - 120px);
         background: #fff;
         position: relative;
     }

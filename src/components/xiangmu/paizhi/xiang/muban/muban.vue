@@ -28,58 +28,81 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>项目模板</th>
-                                <th>备注</th>
-                                <th>类型</th>
-                                <th>状态</th>
-                                <th>操作</th>
+                                <th v-for="val of ind">{{val}}</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr v-for="(v,index) of mu">
                                 <td>
                                     <div class="shi">
-                                        <i></i>
-                                        <span>项目处理</span>
+                                        <i :class="{'iconfont icon-renwu':v.sp == '项目处理','iconfont icon-quexianguanli':v.sp == '缺陷管理'}"></i>
+                                        <span>{{v.sp}}</span>
                                     </div>
                                 </td>
                                 <td>
-                                    <span class="beizhu">适用于最简单的事务管理事</span>
+                                    <span class="beizhu">{{v.content}}</span>
                                 </td>
-                                <td>
-                                    通用
-                                </td>
-                                <td class="con">
-                                    <span class="status">已启用
-                                    </span>
-                                </td>
+                                <td>{{v.nex}}</td>
+                                <td class="con"><span class="status">{{v.state}}</span></td>
                                 <td class="con extend">
-                                    <a href="javascript:">
-                                        <i class="wtf iconfont icon-shezhi"></i>配置</a>
+                                    <a href="javascript:"><i class="wtf iconfont icon-shezhi"></i>配置</a>
                                     <a href="javascript:"><i class="iconfont icon-fuzhi"></i></a>
                                     <a href="javascript:"><i class="iconfont icon-bianji"></i></a>
-                                    <a href="javascript:"><i class="iconfont icon-huishouzhan"></i></a>
+                                    <a href="javascript:" @click="delet($index)"><i class="iconfont icon-huishouzhan"></i></a>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
+            
         </div>
     </div>
 </template>
 
 <script>
 export default {
-
+    data(){
+        return {
+            ind:["项目模板","备注","类型","状态","操作"],
+            mu:[
+                {
+                    id:'1',
+                    sp:'项目处理',
+                    content:'适用于最简单的事务管理事',
+                    nex:'通用',
+                    state:'已启用'
+                },
+                {
+                    id:'2',
+                    sp:'缺陷管理',
+                    content:'适用于缺陷管理',
+                    nex:'通用',
+                    state:'未完成'
+                }
+            ]
+        }
+    },
+    methods:{
+        delet(index){
+            this.mu.splice(index,1);
+        }
+    }
 }
 </script>
 
 <style style="scss" scoped>
+    .icon-renwu{
+        color:#99d561
+    }
+    .icon-quexianguanli{
+        color:#f85b59;
+        font-size: 20px;
+    }
     .Muban{
         margin: 15px;
         width: calc(100% - 30px);
-        height: 523px;
+            height: calc(100% - 120px);
         background: #fff;
         position: relative;
     }
@@ -209,6 +232,10 @@ export default {
     }
     .extend .wtf{
         padding-right: 4px;
+        vertical-align: middle;
+    }
+    .icon-icon-{
+        color:#22d7bb;
         vertical-align: middle;
     }
 </style>

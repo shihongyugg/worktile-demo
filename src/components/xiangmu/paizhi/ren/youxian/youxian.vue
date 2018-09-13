@@ -65,7 +65,7 @@ export default {
     .Muban{
         margin: 15px;
         width: calc(100% - 30px);
-        height: 523px;
+        height:calc(100% - 120px);
         background: #fff;
         position: relative;
     }

@@ -1,7 +1,7 @@
 <template>
     <div class="yier">
         <div class="Y_title">
-            <span><i class="iconfont icon-woderenwu1"></i></span>
+            <span><i class="iconfont icon-wenjian1"></i></span>
             <p>项目不存在或者没有权限查看</p>
         </div>
     </div>
@@ -16,7 +16,7 @@ export default {
 <style style="scss" scoped>
     .yier{
         width: calc(100% - 30px);
-        height: 611px;
+        height: calc(100% - 30px);
         background:#fff;
         margin: 15px; 
     }
@@ -28,9 +28,8 @@ export default {
         text-align: center;
     }
     .yier .Y_title i{
-        display:inline-block;
-        width: 81px;
-        height: 75px;
+        font-size:64px;
+        color:#ddd;
     }
     .yier p{
        text-align: center;
