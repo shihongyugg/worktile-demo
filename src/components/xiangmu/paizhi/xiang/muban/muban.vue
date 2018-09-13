@@ -115,6 +115,10 @@ export default {
     data(){
         return {
             ishow:false,
+            sp:'',
+            content:'',
+            nex:'',
+            state:'',
             ind:["项目模板","备注","类型","状态","操作"],
             mu:[
                 {
