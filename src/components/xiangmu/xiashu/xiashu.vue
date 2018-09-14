@@ -51,7 +51,11 @@ export default {
     .X_wrap{
         margin: 15px;
         width: calc(100% - 30px);
+<<<<<<< HEAD
         height: calc(100% - 30px);
+=======
+        height:calc(100% - 30px);
+>>>>>>> e8d68d3e952b973460c947fd1130013095271377
         background: #fff;
         position: relative;
     }

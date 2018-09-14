@@ -27,7 +27,7 @@
                     <td>更新时间</td>
                 </tr>
                 <tr v-for="(item,index) of list">
-                        <td v-model="addDetail.title" ><router-link :to='item.url'><i class="iconfont icon-wenjianjia i3"></i>{{item.title}}</router-link> </td>
+                        <td v-model="addDetail.title"><router-link :to='item.url'><i class="iconfont icon-wenjianjia i3"></i>{{item.title}}</router-link> </td>
                         <td v-model="addDetail.daxiao" >{{item.daxiao}} </td>
                         <td v-model="addDetail.ren" >
                             <span>M</span>

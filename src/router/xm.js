@@ -7,9 +7,6 @@ import Wode from '../components/xiangmu/wode/wode'
 import Myfz from '../components/xiangmu/wode/myfz/myfz'
 import Huod from '../components/xiangmu/wode/myfz/huodong/huodong'
 import Wanc from '../components/xiangmu/wode/myfz/wancheng/wancheng'
-
-
-
 import Myfp from '../components/xiangmu/wode/myfp/myfp'
 import Huod1 from '../components/xiangmu/wode/myfp/huodong/huodong'
 import Wanc1 from '../components/xiangmu/wode/myfp/wancheng/wancheng'

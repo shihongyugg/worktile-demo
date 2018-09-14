@@ -116,9 +116,15 @@ export default {
         return {
             ishow:false,
             sp:'',
+<<<<<<< HEAD
             nex:'',
             state:'',
             content:'',
+=======
+            content:'',
+            nex:'',
+            state:'',
+>>>>>>> e8d68d3e952b973460c947fd1130013095271377
             ind:["项目模板","备注","类型","状态","操作"],
             mu:[
                 {

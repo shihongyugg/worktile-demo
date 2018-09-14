@@ -31,7 +31,11 @@ export default {
         color: #aaa;
     }
     .dd{
+<<<<<<< HEAD
         height: 100%;
+=======
+        height:100%;
+>>>>>>> e8d68d3e952b973460c947fd1130013095271377
     }
     .div2{
         width: 95%;
