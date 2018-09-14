@@ -101,7 +101,7 @@ data () {
         color:#22d7bb;
      }
     .unread{
-        width:calc(100% - 310px);
+        width:calc(100% - 256px);
         height: 100%;
         float: left;
         position: relative;
@@ -157,9 +157,11 @@ data () {
     font-size: 14px;
 }
 .nav-pills{
-    margin-bottom: 20px;
+      margin-bottom: 20px;
     padding: 0 20px;
     border-bottom: 1px solid #eee;
+    position: absolute;
+    top: 45px;
 }
 .nav-pills>li {
     width: 102px;

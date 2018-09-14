@@ -90,8 +90,13 @@ export default {
 </script>
 
 <style lang='css' scoped>
+*{
+    margin: 0;  
+    padding: 0; 
+}
     .div{
         background-color: #d8d8d8;
+        height: 100%;
     }
     .div1{
         position: relative; 
@@ -172,7 +177,7 @@ export default {
     .div2{
         width: 95%;
         margin: 20px auto;
-        height: 500px;
+        height: 100%;
         background-color: white;
     }
     .div2 table{

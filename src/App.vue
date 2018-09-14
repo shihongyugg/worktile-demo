@@ -62,6 +62,9 @@ export default {
 .router-link-active{
   background: #18bfa4;
 }
+#app{
+  overflow: hidden;
+}
 html,
 body,
 .app {

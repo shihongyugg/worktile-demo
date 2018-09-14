@@ -8,19 +8,18 @@
       "id": 1
     },
     {
-<<<<<<< HEAD
       "title": "456",
       "start": "20180904",
       "end": "20180906",
       "sta": "b1",
       "id": 2
-=======
+    },
+    {
       "title": "435",
       "start": "20180918",
       "end": "20180926",
       "sta": "b4",
       "id": 3
->>>>>>> c988263a6745794cd7606516e36f5eca2db490df
     },
     {
       "title": "123",
@@ -51,7 +50,6 @@
       "id": "41irbkg0"
     },
     {
-<<<<<<< HEAD
       "title": "备选2",
       "start": "20180918",
       "end": "20180922",
@@ -80,41 +78,44 @@
     {
       "title": "123546",
       "color": 17,
-      "id": "fbc7cs8u"
-=======
-      "title": "",
-      "start": "20180904",
-      "end": "20181001",
-      "sta": "b4",
       "id": "5d8942jl"
+    },
+    {
+      "title": "127689",
+      "color": 13,
+      "id": "jgq934sl"
+    },
+    {
+      "title": "34",
+      "color": 3,
+      "id": "z2j5rh08"
+    },
+    {
+      "title": "123789",
+      "color": 9,
+      "id": "v1hw1ch9"
+    },
+    {
+      "title": "657",
+      "color": 1,
+      "id": "5ivin3ur"
+    },
+    {
+      "title": "8979",
+      "color": 15,
+      "id": "kg67m121"
+    },
+    {
+      "title": "2",
+      "color": 7,
+      "id": "3h87fd3t"
     }
   ],
   "xiaoxi": [
     {
-      "title": "13",
-      "id": "n8w4hx64",
-      "sj": "17:42"
-    },
-    {
-      "title": "13\n",
-      "id": "sy5ltd92",
-      "sj": "17:42"
-    },
-    {
-      "title": "13\n\n",
-      "id": "6dn67e6u",
-      "sj": "17:42"
-    },
-    {
-      "title": "byunjmk,\n\n\n\n\n\n\n",
-      "id": "i5vh366i",
-      "sj": "17:3"
-    },
-    {
-      "title": "byunjmk,\n\n\n\n\n\n\n\n",
-      "id": "5kq3g560",
-      "sj": "17:3"
->>>>>>> c988263a6745794cd7606516e36f5eca2db490df
+      "title": "123",
+      "id": "yzj27d23",
+      "sj": "9:13"
     }
   ]
 }

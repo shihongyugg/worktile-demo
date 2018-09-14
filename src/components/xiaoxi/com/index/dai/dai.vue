@@ -17,7 +17,7 @@ export default {
   
     .unread_cont{
       width:calc(100% - 340px);
-    height: 80%;
+    height: 87%;
     overflow: auto;
     position: absolute;
     /* margin-top: 20px; */

@@ -24,14 +24,18 @@
                         <a href="#" >群组</a>
                         <i @click="modal=true" class="more el-icon-more"></i>
                     </div>
-                    <ul id="modal-ul">
-                        <router-link tag="li" :to="{name:'qz123',params:{name1:item.title}}" v-show="select2" v-for='item of getAll'>
+                     <transition name="el-zoom-in-top">
+                    <ul v-show="select2" id="modal-ul">
+                     
+                        <router-link tag="li" :to="{name:'qz123',params:{name1:item.title}}"  v-for='item of getAll'>
                             <span :style="{background:color[item.color]}" class='channel-icon'>
                                 <i class='iconfont icon-yonghuming'></i>
                             </span>                   
                             <span class='name'>{{item.title}}</span>
                         </router-link>
+                      
                     </ul>
+                    </transition>
                 </div>
                 <!-- 机器人列表 -->
                 <div class='robot'>

@@ -115,6 +115,10 @@ export default {
     data(){
         return {
             ishow:false,
+            sp:'',
+            nex:'',
+            state:'',
+            content:'',
             ind:["项目模板","备注","类型","状态","操作"],
             mu:[
                 {
@@ -365,6 +369,7 @@ export default {
         height: 500px;
         top: 50%;
         left: 50%;
+        margin-top: -250px;
         transform: translate(-28%,-137%);
         box-shadow: 0 0 5px rgba(0,0,0,.5);
         background-color: #fff;

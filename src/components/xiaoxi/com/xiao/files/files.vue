@@ -69,7 +69,7 @@
     position: absolute;
     left: 315px;
     top: 78px;
-    height: 82%;
+    height: 87%;
     overflow: auto;
     margin-left: 10px;
     margin-top: 20px;

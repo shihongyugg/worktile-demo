@@ -63,7 +63,7 @@ data () {
 <style lang='scss' scoped>
 
     .unread{
-       width:calc(100% - 310px);
+        width:calc(100% - 256px);
         height: 100%;
         float: left;
         position: relative;
@@ -114,9 +114,11 @@ data () {
     font-size: 14px;
 }
 .nav-pills{
-    margin-bottom: 20px;
+       margin-bottom: 20px;
     padding: 0 20px;
     border-bottom: 1px solid #eee;
+    position: absolute;
+    top: 45px;
 }
 .nav-pills>li {
     width: 102px;
@@ -139,7 +141,7 @@ data () {
 }
 .unread_cont{
     width:calc(100% - 310px);
-    height: 80%;
+    height: 87%;
     overflow: auto;
     position: absolute;
     margin-top: 20px;

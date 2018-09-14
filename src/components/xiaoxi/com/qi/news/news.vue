@@ -214,10 +214,10 @@ export default {
 }
 .unread_cont{
     position: absolute;
-    left: 320px;
+    left: 325px;
     top: 78px;
      width:calc(100% - 340px);
-    height: 82%;
+    height: 87%;
     overflow: auto;
     margin-top: 20px;
     background-color: #fff;

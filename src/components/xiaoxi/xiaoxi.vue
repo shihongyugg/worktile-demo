@@ -207,7 +207,7 @@ export default {
  }
     .message_main{
         overflow: hidden;
-        width: 1296px;
+       width: calc(100% - 130px);
         height: 100%;
         position: absolute;
         background-color:#eee;
@@ -221,6 +221,7 @@ export default {
     .m_main_left{
         width: 240px;
         height:100%;
+        margin-left: -60px;
         background-color: #fff;
         float: left;
         position: fixed;

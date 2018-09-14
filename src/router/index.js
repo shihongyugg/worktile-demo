@@ -47,7 +47,7 @@ export default new Router({
       {
         //如果用户随便输入地址,转到首页
         path: '*',
-        redirect: '/xiangmu'
+        redirect: '/xiangmu/wode'
     }    
     ]
 })
